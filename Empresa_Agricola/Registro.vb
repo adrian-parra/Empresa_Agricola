@@ -2,6 +2,7 @@
 Imports System.Data.SqlClient
 Public Class Registro
     Dim cn As New SqlConnection
+
     Private Sub TextBox4_TextChanged(sender As Object, e As EventArgs) Handles txt_newpass.TextChanged
 
     End Sub
@@ -11,6 +12,8 @@ Public Class Registro
     End Sub
 
     Private Sub btn_registrar_Click(sender As Object, e As EventArgs) Handles btn_registrar.Click
+
+
         cn.ConnectionString = conexionBD.conexion
 
         'validacion de txt
@@ -18,21 +21,53 @@ Public Class Registro
             Exit Sub
         End If
 
+        'Traer todos lo usuario de la bd
+        Dim queryusuarios As New SqlCommand("select NombreUsuario from Usuario", cn)
+        Try
+            cn.Open()
+            queryusuarios.ExecuteNonQuery()
+
+            Dim leerDatos As SqlDataReader = queryusuarios.ExecuteReader
+            While leerDatos.Read
+                'VERIFICAR QUE USUARIO NO ESTE REGISTRADO
+                If txt_usuario.Text = leerDatos.GetValue(0) Then
+                    MsgBox("nombre de usuario ya existe", vbOKOnly + vbExclamation, "Error en BD")
+                    txt_usuario.Focus()
+                    cn.Close()
+                    Exit Sub
+                End If
+
+            End While
+            leerDatos.Close()
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+
+        End Try
+
+
         'insercion a tabla Usuario
-        Dim adaptador As New SqlCommand("insert into Usuario values ('" + txt_nombreCom.Text + "','" + txt_usuario.Text + "' ,'" + txt_pass.Text + "','" + txt_newpass.Text + "')", cn)
+        Dim adaptador As New SqlCommand("insert into Usuario values ('" + txt_nombreCom.Text + "','" + txt_usuario.Text + "' ,'" + txt_pass.Text + "')", cn)
 
         Try
-            'conexion abierta
-            cn.Open()
+
             'ejecutar consulta
             adaptador.ExecuteNonQuery()
 
+            MsgBox("Usuario registrado con exito", vbOKOnly + vbInformation, "Registro")
 
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
             'finalizar conexion
             cn.Close()
+            cn.Dispose()
+
+            Login.txt_user.Text = txt_usuario.Text
+            Login.txt_password.Text = txt_pass.Text
+            Me.Hide()
+            Login.Show()
+
 
         End Try
     End Sub
