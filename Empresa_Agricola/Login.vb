@@ -3,6 +3,8 @@
         Me.Hide()
 
         'INICIAR FORM PRINCIPAL
+        Registro.Show()
+
 
     End Sub
 End Class
