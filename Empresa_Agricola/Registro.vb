@@ -103,4 +103,7 @@ Public Class Registro
         End If
     End Function
 
+    Private Sub txt_pass_TextChanged(sender As Object, e As EventArgs) Handles txt_pass.TextChanged
+
+    End Sub
 End Class
