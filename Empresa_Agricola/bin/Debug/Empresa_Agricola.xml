@@ -32,5 +32,15 @@ Empresa_Agricola
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Empresa_Agricola.My.Resources.Resources.img_registro">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Empresa_Agricola.My.Resources.Resources.img_registro_btn_registrar">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
 </members>
 </doc>
