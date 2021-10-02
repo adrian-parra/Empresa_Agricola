@@ -61,7 +61,6 @@ Public Class Registro
         Finally
             'finalizar conexion
             cn.Close()
-            cn.Dispose()
 
             Login.txt_user.Text = txt_usuario.Text
             Login.txt_password.Text = txt_pass.Text
