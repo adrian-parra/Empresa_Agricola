@@ -35,9 +35,13 @@ Public Class Login
                 While leerDatos.Read
                     'BUSCAR USUARIO EN LO DATOS
                     If txt_user.Text = leerDatos.GetValue(0) And txt_password.Text = leerDatos.GetValue(1) Then
+
+
+                        Subsistema.Show()
                         MsgBox("usuario encontrado", vbOKOnly + vbInformation, "Informacion en BD")
 
                         cn.Close()
+
                         Exit Sub
                     End If
 
@@ -51,5 +55,9 @@ Public Class Login
 
             End Try
         End If
+    End Sub
+
+    Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class
