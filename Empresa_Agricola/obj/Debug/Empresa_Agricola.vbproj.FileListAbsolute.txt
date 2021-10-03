@@ -2,7 +2,6 @@ C:\ProyectosVisualBasic\Empresa_Agricola\Empresa_Agricola\bin\Debug\Empresa_Agri
 C:\ProyectosVisualBasic\Empresa_Agricola\Empresa_Agricola\bin\Debug\Empresa_Agricola.exe
 C:\ProyectosVisualBasic\Empresa_Agricola\Empresa_Agricola\bin\Debug\Empresa_Agricola.pdb
 C:\ProyectosVisualBasic\Empresa_Agricola\Empresa_Agricola\bin\Debug\Empresa_Agricola.xml
-C:\ProyectosVisualBasic\Empresa_Agricola\Empresa_Agricola\obj\Debug\Empresa_Agricola.vbproj.AssemblyReference.cache
 C:\ProyectosVisualBasic\Empresa_Agricola\Empresa_Agricola\obj\Debug\Empresa_Agricola.Resources.resources
 C:\ProyectosVisualBasic\Empresa_Agricola\Empresa_Agricola\obj\Debug\Empresa_Agricola.vbproj.GenerateResource.cache
 C:\ProyectosVisualBasic\Empresa_Agricola\Empresa_Agricola\obj\Debug\Empresa_Agricola.vbproj.CoreCompileInputs.cache
