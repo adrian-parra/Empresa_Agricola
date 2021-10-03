@@ -137,12 +137,17 @@ Public Class Inventario
             Catch ex As Exception
                 MsgBox(ex.Message)
             Finally
-                MsgBox("datos actualizados")
+                MsgBox("Datos actualizados")
             End Try
 
 
 
         End If
+
+    End Sub
+
+    Private Sub Inventario_Closed(sender As Object, e As EventArgs) Handles Me.Closed
+        Subsistema.Show()
 
     End Sub
 End Class

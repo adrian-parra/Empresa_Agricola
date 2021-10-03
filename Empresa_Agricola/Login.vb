@@ -24,7 +24,7 @@ Public Class Login
             'buscar usaurio en la bd
 
             'consulta
-            Dim queryBuscarUser As New SqlCommand("select NombreUsuario,Password from Usuario", cn)
+            Dim queryBuscarUser As New SqlCommand("select NombreUsuario,Password ,Puesto from Usuario", cn)
             Try
                 'inicio conexion
                 cn.Open()
@@ -36,9 +36,8 @@ Public Class Login
                     'BUSCAR USUARIO EN LO DATOS
                     If txt_user.Text = leerDatos.GetValue(0) And txt_password.Text = leerDatos.GetValue(1) Then
 
-
+                        Privilegios.Privilegio = leerDatos.GetValue(2)
                         Subsistema.Show()
-                        MsgBox("usuario encontrado", vbOKOnly + vbInformation, "Informacion en BD")
 
                         cn.Close()
 
