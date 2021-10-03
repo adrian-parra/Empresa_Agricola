@@ -43,6 +43,7 @@ Public Class Login
 
                 End While
                 leerDatos.Close()
+                'imprimir que no existe el usuario
                 MsgBox("usuario no encontrado verifique")
                 cn.Close()
 
