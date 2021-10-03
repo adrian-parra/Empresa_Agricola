@@ -24,3 +24,4 @@ C:\Users\DELL\source\repos\Empresa_Agricola\Empresa_Agricola\obj\Debug\Empresa_A
 C:\Users\DELL\source\repos\Empresa_Agricola\Empresa_Agricola\obj\Debug\Empresa_Agricola.exe
 C:\Users\DELL\source\repos\Empresa_Agricola\Empresa_Agricola\obj\Debug\Empresa_Agricola.xml
 C:\Users\DELL\source\repos\Empresa_Agricola\Empresa_Agricola\obj\Debug\Empresa_Agricola.pdb
+C:\Users\DELL\source\repos\Empresa_Agricola\Empresa_Agricola\obj\Debug\Empresa_Agricola.Form1.resources
