@@ -171,4 +171,12 @@ Public Class Registro
             TXT_Codigo.Text = ""
         End If
     End Sub
+
+    Private Sub CB_Puesto_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CB_Puesto.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub CB_Puesto_KeyPress(sender As Object, e As KeyPressEventArgs) Handles CB_Puesto.KeyPress
+        e.KeyChar = ""
+    End Sub
 End Class

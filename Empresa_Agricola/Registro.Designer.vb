@@ -171,9 +171,11 @@ Partial Class Registro
         '
         Me.TXT_Codigo.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TXT_Codigo.Location = New System.Drawing.Point(450, 257)
+        Me.TXT_Codigo.MaxLength = 4
         Me.TXT_Codigo.Name = "TXT_Codigo"
         Me.TXT_Codigo.Size = New System.Drawing.Size(208, 37)
         Me.TXT_Codigo.TabIndex = 13
+        Me.TXT_Codigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Registro
         '

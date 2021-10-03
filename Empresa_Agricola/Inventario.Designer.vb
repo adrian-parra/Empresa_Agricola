@@ -28,128 +28,155 @@ Partial Class Inventario
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.CB_Nombre_Articulo = New System.Windows.Forms.ComboBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.BTN_Add_Product = New System.Windows.Forms.Button()
+        Me.BTN_Guardar = New System.Windows.Forms.Button()
         Me.CB_Opciones = New System.Windows.Forms.ComboBox()
         Me.CB_Sucursal = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'TXT_Cantidad
         '
-        Me.TXT_Cantidad.Location = New System.Drawing.Point(149, 122)
+        Me.TXT_Cantidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TXT_Cantidad.Location = New System.Drawing.Point(217, 129)
         Me.TXT_Cantidad.Name = "TXT_Cantidad"
-        Me.TXT_Cantidad.Size = New System.Drawing.Size(201, 26)
+        Me.TXT_Cantidad.Size = New System.Drawing.Size(458, 37)
         Me.TXT_Cantidad.TabIndex = 0
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(145, 73)
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(218, 92)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(74, 20)
+        Me.Label1.Size = New System.Drawing.Size(122, 30)
         Me.Label1.TabIndex = 1
-        Me.Label1.Text = "cantidad:"
+        Me.Label1.Text = "Cantidad:"
         '
         'CB_Tipo_Articulo
         '
+        Me.CB_Tipo_Articulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CB_Tipo_Articulo.FormattingEnabled = True
-        Me.CB_Tipo_Articulo.Location = New System.Drawing.Point(149, 213)
+        Me.CB_Tipo_Articulo.Location = New System.Drawing.Point(217, 209)
         Me.CB_Tipo_Articulo.Name = "CB_Tipo_Articulo"
-        Me.CB_Tipo_Articulo.Size = New System.Drawing.Size(181, 28)
+        Me.CB_Tipo_Articulo.Size = New System.Drawing.Size(458, 38)
         Me.CB_Tipo_Articulo.TabIndex = 2
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(145, 177)
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(219, 172)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(39, 20)
+        Me.Label2.Size = New System.Drawing.Size(70, 30)
         Me.Label2.TabIndex = 3
-        Me.Label2.Text = "tipo:"
+        Me.Label2.Text = "Tipo:"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(143, 268)
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(219, 253)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(67, 20)
+        Me.Label3.Size = New System.Drawing.Size(112, 30)
         Me.Label3.TabIndex = 5
-        Me.Label3.Text = "nombre:"
+        Me.Label3.Text = "Nombre:"
         '
         'CB_Nombre_Articulo
         '
+        Me.CB_Nombre_Articulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CB_Nombre_Articulo.FormattingEnabled = True
-        Me.CB_Nombre_Articulo.Location = New System.Drawing.Point(147, 304)
+        Me.CB_Nombre_Articulo.Location = New System.Drawing.Point(217, 288)
         Me.CB_Nombre_Articulo.Name = "CB_Nombre_Articulo"
-        Me.CB_Nombre_Articulo.Size = New System.Drawing.Size(181, 28)
+        Me.CB_Nombre_Articulo.Size = New System.Drawing.Size(458, 38)
         Me.CB_Nombre_Articulo.TabIndex = 4
         '
-        'Button1
+        'BTN_Add_Product
         '
-        Me.Button1.Location = New System.Drawing.Point(686, 58)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(181, 50)
-        Me.Button1.TabIndex = 6
-        Me.Button1.Text = "add produc"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.BTN_Add_Product.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BTN_Add_Product.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BTN_Add_Product.Location = New System.Drawing.Point(429, 501)
+        Me.BTN_Add_Product.Name = "BTN_Add_Product"
+        Me.BTN_Add_Product.Size = New System.Drawing.Size(246, 50)
+        Me.BTN_Add_Product.TabIndex = 6
+        Me.BTN_Add_Product.Text = "Agregar producto"
+        Me.BTN_Add_Product.UseVisualStyleBackColor = True
         '
-        'Button2
+        'BTN_Guardar
         '
-        Me.Button2.Location = New System.Drawing.Point(400, 311)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(181, 50)
-        Me.Button2.TabIndex = 7
-        Me.Button2.Text = "guardar"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.BTN_Guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BTN_Guardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BTN_Guardar.Location = New System.Drawing.Point(217, 501)
+        Me.BTN_Guardar.Name = "BTN_Guardar"
+        Me.BTN_Guardar.Size = New System.Drawing.Size(181, 50)
+        Me.BTN_Guardar.TabIndex = 7
+        Me.BTN_Guardar.Text = "guardar"
+        Me.BTN_Guardar.UseVisualStyleBackColor = True
         '
         'CB_Opciones
         '
+        Me.CB_Opciones.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CB_Opciones.FormattingEnabled = True
         Me.CB_Opciones.Items.AddRange(New Object() {"Disminuir", "Aumentar", "Agregar"})
-        Me.CB_Opciones.Location = New System.Drawing.Point(149, 378)
+        Me.CB_Opciones.Location = New System.Drawing.Point(217, 368)
         Me.CB_Opciones.Name = "CB_Opciones"
-        Me.CB_Opciones.Size = New System.Drawing.Size(181, 28)
+        Me.CB_Opciones.Size = New System.Drawing.Size(458, 38)
         Me.CB_Opciones.TabIndex = 8
         '
         'CB_Sucursal
         '
+        Me.CB_Sucursal.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CB_Sucursal.FormattingEnabled = True
-        Me.CB_Sucursal.Location = New System.Drawing.Point(149, 456)
+        Me.CB_Sucursal.Location = New System.Drawing.Point(217, 448)
         Me.CB_Sucursal.Name = "CB_Sucursal"
-        Me.CB_Sucursal.Size = New System.Drawing.Size(181, 28)
+        Me.CB_Sucursal.Size = New System.Drawing.Size(458, 38)
         Me.CB_Sucursal.TabIndex = 9
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(152, 423)
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(217, 412)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(72, 20)
+        Me.Label4.Size = New System.Drawing.Size(120, 30)
         Me.Label4.TabIndex = 10
-        Me.Label4.Text = "sucursal:"
+        Me.Label4.Text = "Sucursal:"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(152, 341)
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(220, 331)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(73, 20)
+        Me.Label5.Size = New System.Drawing.Size(128, 30)
         Me.Label5.TabIndex = 11
-        Me.Label5.Text = "opciones"
+        Me.Label5.Text = "Opciones:"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(367, 9)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(146, 36)
+        Me.Label6.TabIndex = 12
+        Me.Label6.Text = "Inventario"
         '
         'Inventario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(917, 536)
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(917, 622)
+        Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.CB_Sucursal)
         Me.Controls.Add(Me.CB_Opciones)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.BTN_Guardar)
+        Me.Controls.Add(Me.BTN_Add_Product)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.CB_Nombre_Articulo)
         Me.Controls.Add(Me.Label2)
@@ -157,7 +184,7 @@ Partial Class Inventario
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TXT_Cantidad)
         Me.Name = "Inventario"
-        Me.Text = "Form1"
+        Me.Text = "Inventario"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -169,10 +196,11 @@ Partial Class Inventario
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents CB_Nombre_Articulo As ComboBox
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
+    Friend WithEvents BTN_Add_Product As Button
+    Friend WithEvents BTN_Guardar As Button
     Friend WithEvents CB_Opciones As ComboBox
     Friend WithEvents CB_Sucursal As ComboBox
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
+    Friend WithEvents Label6 As Label
 End Class

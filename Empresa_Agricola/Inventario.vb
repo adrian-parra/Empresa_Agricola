@@ -7,6 +7,12 @@ Public Class Inventario
 
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'VERIFICAR PRIVILEGIOS
+        If Privilegios.Privilegio = "usuario" Then
+            BTN_Add_Product.Visible = False
+        End If
+
+
         cn.ConnectionString = conexionBD.conexion
         'consulta
         Dim queryBuscarTipoArt As New SqlCommand("select * from Tipo_Articulo", cn)
@@ -112,7 +118,7 @@ Public Class Inventario
 
 
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles BTN_Guardar.Click
         Dim idNombre_Articulo As String = arr_nombre_articulo(CB_Nombre_Articulo.SelectedIndex)
         Dim idtipo_articulo As String = arr_tipo_articulo(CB_Tipo_Articulo.SelectedIndex)
         Dim idNombre_sucursal As String = arr_nombre_sucursal(CB_Sucursal.SelectedIndex)
@@ -147,6 +153,49 @@ Public Class Inventario
 
     Private Sub Inventario_Closed(sender As Object, e As EventArgs) Handles Me.Closed
         Subsistema.Show()
+
+    End Sub
+
+    Private Sub TXT_Cantidad_TextChanged(sender As Object, e As EventArgs) Handles TXT_Cantidad.TextChanged
+
+    End Sub
+
+    Private Sub TXT_Cantidad_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TXT_Cantidad.KeyPress
+        If e.KeyChar = ChrW(8) Then
+            Exit Sub
+        End If
+
+        Dim caracteres As String = "0123456789"
+        Dim caracterCorrecto As Boolean = False
+        For i = 1 To caracteres.Length
+            If Mid(caracteres, i, 1) = e.KeyChar Then
+                caracterCorrecto = True
+            End If
+        Next
+
+        If Not caracterCorrecto Then
+            e.KeyChar = ""
+        End If
+
+    End Sub
+
+    Private Sub CB_Tipo_Articulo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CB_Tipo_Articulo.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub CB_Tipo_Articulo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles CB_Tipo_Articulo.KeyPress
+        e.KeyChar = ""
+    End Sub
+
+    Private Sub CB_Nombre_Articulo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CB_Nombre_Articulo.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub CB_Nombre_Articulo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles CB_Nombre_Articulo.KeyPress
+        e.KeyChar = ""
+    End Sub
+
+    Private Sub CB_Opciones_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CB_Opciones.SelectedIndexChanged
 
     End Sub
 End Class
