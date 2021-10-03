@@ -11,3 +11,17 @@ C:\ProyectosVisualBasic\Empresa_Agricola\Empresa_Agricola\obj\Debug\Empresa_Agri
 C:\ProyectosVisualBasic\Empresa_Agricola\Empresa_Agricola\obj\Debug\Empresa_Agricola.pdb
 C:\ProyectosVisualBasic\Empresa_Agricola\Empresa_Agricola\obj\Debug\Empresa_Agricola.Login.resources
 C:\ProyectosVisualBasic\Empresa_Agricola\Empresa_Agricola\obj\Debug\Empresa_Agricola.Registro.resources
+C:\Users\DELL\source\repos\Empresa_Agricola\Empresa_Agricola\bin\Debug\Empresa_Agricola.exe.config
+C:\Users\DELL\source\repos\Empresa_Agricola\Empresa_Agricola\bin\Debug\Empresa_Agricola.exe
+C:\Users\DELL\source\repos\Empresa_Agricola\Empresa_Agricola\bin\Debug\Empresa_Agricola.pdb
+C:\Users\DELL\source\repos\Empresa_Agricola\Empresa_Agricola\bin\Debug\Empresa_Agricola.xml
+C:\Users\DELL\source\repos\Empresa_Agricola\Empresa_Agricola\obj\Debug\Empresa_Agricola.vbproj.AssemblyReference.cache
+C:\Users\DELL\source\repos\Empresa_Agricola\Empresa_Agricola\obj\Debug\Empresa_Agricola.Subsistema.resources
+C:\Users\DELL\source\repos\Empresa_Agricola\Empresa_Agricola\obj\Debug\Empresa_Agricola.Login.resources
+C:\Users\DELL\source\repos\Empresa_Agricola\Empresa_Agricola\obj\Debug\Empresa_Agricola.Resources.resources
+C:\Users\DELL\source\repos\Empresa_Agricola\Empresa_Agricola\obj\Debug\Empresa_Agricola.Registro.resources
+C:\Users\DELL\source\repos\Empresa_Agricola\Empresa_Agricola\obj\Debug\Empresa_Agricola.vbproj.GenerateResource.cache
+C:\Users\DELL\source\repos\Empresa_Agricola\Empresa_Agricola\obj\Debug\Empresa_Agricola.vbproj.CoreCompileInputs.cache
+C:\Users\DELL\source\repos\Empresa_Agricola\Empresa_Agricola\obj\Debug\Empresa_Agricola.exe
+C:\Users\DELL\source\repos\Empresa_Agricola\Empresa_Agricola\obj\Debug\Empresa_Agricola.xml
+C:\Users\DELL\source\repos\Empresa_Agricola\Empresa_Agricola\obj\Debug\Empresa_Agricola.pdb

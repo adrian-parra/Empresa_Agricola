@@ -35,17 +35,19 @@ Partial Class Login
         'txt_password
         '
         Me.txt_password.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_password.Location = New System.Drawing.Point(122, 437)
+        Me.txt_password.Location = New System.Drawing.Point(108, 350)
+        Me.txt_password.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_password.Name = "txt_password"
-        Me.txt_password.Size = New System.Drawing.Size(506, 37)
+        Me.txt_password.Size = New System.Drawing.Size(450, 32)
         Me.txt_password.TabIndex = 4
         '
         'txt_user
         '
         Me.txt_user.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_user.Location = New System.Drawing.Point(122, 335)
+        Me.txt_user.Location = New System.Drawing.Point(108, 268)
+        Me.txt_user.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_user.Name = "txt_user"
-        Me.txt_user.Size = New System.Drawing.Size(506, 37)
+        Me.txt_user.Size = New System.Drawing.Size(450, 32)
         Me.txt_user.TabIndex = 3
         '
         'link_registrar
@@ -53,9 +55,9 @@ Partial Class Login
         Me.link_registrar.AutoSize = True
         Me.link_registrar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.link_registrar.LinkVisited = True
-        Me.link_registrar.Location = New System.Drawing.Point(372, 518)
+        Me.link_registrar.Location = New System.Drawing.Point(331, 414)
         Me.link_registrar.Name = "link_registrar"
-        Me.link_registrar.Size = New System.Drawing.Size(264, 22)
+        Me.link_registrar.Size = New System.Drawing.Size(215, 18)
         Me.link_registrar.TabIndex = 6
         Me.link_registrar.TabStop = True
         Me.link_registrar.Text = "No tienes cuenta registrate aqui"
@@ -65,9 +67,9 @@ Partial Class Login
         Me.Label1.AutoSize = True
         Me.Label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(127, 289)
+        Me.Label1.Location = New System.Drawing.Point(113, 231)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(102, 30)
+        Me.Label1.Size = New System.Drawing.Size(87, 26)
         Me.Label1.TabIndex = 8
         Me.Label1.Text = "Usuario"
         '
@@ -76,18 +78,19 @@ Partial Class Login
         Me.Label2.AutoSize = True
         Me.Label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(127, 392)
+        Me.Label2.Location = New System.Drawing.Point(113, 314)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(145, 30)
+        Me.Label2.Size = New System.Drawing.Size(124, 26)
         Me.Label2.TabIndex = 9
         Me.Label2.Text = "Contraseña"
         '
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.Empresa_Agricola.My.Resources.Resources.img_login
-        Me.PictureBox1.Location = New System.Drawing.Point(122, 12)
+        Me.PictureBox1.Location = New System.Drawing.Point(108, 10)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(506, 224)
+        Me.PictureBox1.Size = New System.Drawing.Size(450, 179)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 7
         Me.PictureBox1.TabStop = False
@@ -99,10 +102,11 @@ Partial Class Login
         Me.btn_iniciar.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_iniciar.Image = Global.Empresa_Agricola.My.Resources.Resources.img_login_btn_iniciar
         Me.btn_iniciar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_iniciar.Location = New System.Drawing.Point(122, 496)
+        Me.btn_iniciar.Location = New System.Drawing.Point(108, 397)
+        Me.btn_iniciar.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_iniciar.Name = "btn_iniciar"
         Me.btn_iniciar.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.btn_iniciar.Size = New System.Drawing.Size(232, 65)
+        Me.btn_iniciar.Size = New System.Drawing.Size(206, 52)
         Me.btn_iniciar.TabIndex = 5
         Me.btn_iniciar.Text = "Iniciar"
         Me.btn_iniciar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -111,10 +115,10 @@ Partial Class Login
         '
         'Login
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.ClientSize = New System.Drawing.Size(742, 677)
+        Me.ClientSize = New System.Drawing.Size(660, 542)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox1)
@@ -122,6 +126,7 @@ Partial Class Login
         Me.Controls.Add(Me.btn_iniciar)
         Me.Controls.Add(Me.txt_password)
         Me.Controls.Add(Me.txt_user)
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "Login"
         Me.Text = "Iniciar sesion"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
