@@ -90,8 +90,13 @@ Public Class Inventario
                 Finally
                     MsgBox("restado")
                 End Try
+<<<<<<< HEAD
 
 
+=======
+
+
+>>>>>>> 82733e36d31c8588c813c43d0e9352b1e33d403b
             End If
         Else
             Dim resulCant As Integer = Cantidad + CInt(TXT_Cantidad.Text)
