@@ -162,7 +162,7 @@ Partial Class Inventario
         '
         Me.BTN_Add_Product.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BTN_Add_Product.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BTN_Add_Product.Image = Global.Empresa_Agricola.My.Resources.Resources.img_inventario_btn_guardar
+        Me.BTN_Add_Product.Image = Global.Empresa_Agricola.My.Resources.Resources.img_inventario_btn_agregar
         Me.BTN_Add_Product.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.BTN_Add_Product.Location = New System.Drawing.Point(418, 501)
         Me.BTN_Add_Product.Name = "BTN_Add_Product"

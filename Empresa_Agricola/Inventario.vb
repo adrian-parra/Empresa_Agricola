@@ -15,11 +15,11 @@ Public Class Inventario
 
         cn.ConnectionString = conexionBD.conexion
         'consulta
-        Dim queryBuscarTipoArt As New SqlCommand("select * from Tipo_Articulo", cn)
         Try
             'inicio conexion
             cn.Open()
-            queryBuscarTipoArt.ExecuteNonQuery()
+            Dim queryBuscarTipoArt As New SqlCommand("select * from Tipo_Articulo", cn)
+
 
             Dim leerDatos As SqlDataReader = queryBuscarTipoArt.ExecuteReader
             While leerDatos.Read
@@ -32,6 +32,7 @@ Public Class Inventario
             leerDatos.Close()
 
             Dim queryBuscarNombre_Articulo As New SqlCommand("select * from Nombre_Articulos", cn)
+
             leerDatos = queryBuscarNombre_Articulo.ExecuteReader
             While leerDatos.Read
 
@@ -43,6 +44,7 @@ Public Class Inventario
             leerDatos.Close()
 
             Dim queryBuscarNombre_Sucursal As New SqlCommand("select * from Sucursal", cn)
+
             leerDatos = queryBuscarNombre_Sucursal.ExecuteReader
             While leerDatos.Read
 
@@ -55,7 +57,7 @@ Public Class Inventario
 
 
         Catch ex As Exception
-
+            MsgBox(ex.Message)
         End Try
 
     End Sub
@@ -65,6 +67,7 @@ Public Class Inventario
         Dim idArti As String
         Dim Cantidad As Integer
 
+
         Try
             Dim queryTraerIDCantidad As New SqlCommand("select Cantidad_Articulo ,ID_Articulo  from Inventario_Sucursal where ID_Sucursal = " + idNombre_sucursal + " AND ID_Nombre  = " + idNombre_Articulo + "", cn)
             queryTraerIDCantidad.ExecuteNonQuery()
@@ -72,6 +75,8 @@ Public Class Inventario
             Dim leerDatos As SqlDataReader = queryTraerIDCantidad.ExecuteReader
 
             While leerDatos.Read
+
+
 
                 idArti = leerDatos.GetValue(1)
                 Cantidad = leerDatos.GetValue(0)
@@ -101,6 +106,9 @@ Public Class Inventario
         Else
             Dim resulCant As Integer = Cantidad + CInt(TXT_Cantidad.Text)
 
+
+
+
             Try
                 Dim queryUpdateCantidad As New SqlCommand("update Inventario_Sucursal set Cantidad_Articulo = " + resulCant.ToString + " where ID_Articulo = '" + idArti + "'", cn)
                 queryUpdateCantidad.ExecuteNonQuery()
@@ -123,12 +131,14 @@ Public Class Inventario
         Dim idtipo_articulo As String = arr_tipo_articulo(CB_Tipo_Articulo.SelectedIndex)
         Dim idNombre_sucursal As String = arr_nombre_sucursal(CB_Sucursal.SelectedIndex)
 
+        MsgBox("idtipoarticulo" + idtipo_articulo)
+
         If CB_Opciones.Text = "Disminuir" Then
-            ProcesoInventario(1, idNombre_sucursal, idtipo_articulo)
+            ProcesoInventario(1, idNombre_sucursal, idNombre_Articulo)
 
         ElseIf CB_Opciones.Text = "Aumentar" Then
 
-            ProcesoInventario(2, idNombre_sucursal, idtipo_articulo)
+            ProcesoInventario(2, idNombre_sucursal, idNombre_Articulo)
         Else
 
 

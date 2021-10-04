@@ -2,7 +2,7 @@
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Este es el form de los subsistemas
         Login.Hide()
-        MsgBox(Privilegios.Privilegio)
+
 
     End Sub
 
