@@ -22,6 +22,11 @@ Empresa_Agricola
   búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
 </summary>
 </member>
+<member name="P:Empresa_Agricola.My.Resources.Resources.img_inventario_btn_guardar">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Empresa_Agricola.My.Resources.Resources.img_login">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.

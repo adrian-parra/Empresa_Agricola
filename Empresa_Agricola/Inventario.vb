@@ -107,7 +107,7 @@ Public Class Inventario
             Catch ex As Exception
                 MsgBox(ex.Message)
             Finally
-                MsgBox("restado")
+                MsgBox("sumado")
             End Try
 
         End If
@@ -196,6 +196,10 @@ Public Class Inventario
     End Sub
 
     Private Sub CB_Opciones_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CB_Opciones.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub BTN_Add_Product_Click(sender As Object, e As EventArgs) Handles BTN_Add_Product.Click
 
     End Sub
 End Class

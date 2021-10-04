@@ -160,5 +160,8 @@
   <ItemGroup>
     <None Include="Resources\img-registro-btn-registrar.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img-inventario-btn-guardar.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
