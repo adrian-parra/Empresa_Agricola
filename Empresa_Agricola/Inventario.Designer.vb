@@ -169,7 +169,7 @@ Partial Class Inventario
         Me.BTN_Add_Product.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.BTN_Add_Product.Size = New System.Drawing.Size(257, 69)
         Me.BTN_Add_Product.TabIndex = 6
-        Me.BTN_Add_Product.Text = "Agregar"
+        Me.BTN_Add_Product.Text = "Registrar"
         Me.BTN_Add_Product.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.BTN_Add_Product.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.BTN_Add_Product.UseVisualStyleBackColor = True

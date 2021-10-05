@@ -27,3 +27,4 @@ C:\Users\DELL\source\repos\Empresa_Agricola\Empresa_Agricola\obj\Debug\Empresa_A
 C:\ProyectosVisualBasic\Empresa_Agricola\Empresa_Agricola\obj\Debug\Empresa_Agricola.Inventario.resources
 C:\ProyectosVisualBasic\Empresa_Agricola\Empresa_Agricola\obj\Debug\Empresa_Agricola.Subsistema.resources
 C:\ProyectosVisualBasic\Empresa_Agricola\Empresa_Agricola\obj\Debug\Empresa_Agricola.vbproj.AssemblyReference.cache
+C:\ProyectosVisualBasic\Empresa_Agricola\Empresa_Agricola\obj\Debug\Empresa_Agricola.InventarioAddArticulo.resources

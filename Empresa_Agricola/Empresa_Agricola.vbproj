@@ -73,13 +73,20 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="conexionBD.vb" />
+    <Compile Include="M_ConexionBD.vb" />
     <Compile Include="Inventario.Designer.vb">
       <DependentUpon>Inventario.vb</DependentUpon>
     </Compile>
     <Compile Include="Inventario.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="InventarioAddArticulo.Designer.vb">
+      <DependentUpon>InventarioAddArticulo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="InventarioAddArticulo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="M_Inventario.vb" />
     <Compile Include="Privilegios.vb" />
     <Compile Include="Subsistema.Designer.vb">
       <DependentUpon>Subsistema.vb</DependentUpon>
@@ -119,6 +126,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Inventario.resx">
       <DependentUpon>Inventario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventarioAddArticulo.resx">
+      <DependentUpon>InventarioAddArticulo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Subsistema.resx">
       <DependentUpon>Subsistema.vb</DependentUpon>

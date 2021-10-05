@@ -13,7 +13,7 @@ Public Class Inventario
         End If
 
 
-        cn.ConnectionString = conexionBD.conexion
+        cn.ConnectionString = conexion
         'consulta
         Try
             'inicio conexion
