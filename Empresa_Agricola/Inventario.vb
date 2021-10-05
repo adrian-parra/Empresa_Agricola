@@ -148,12 +148,13 @@ Public Class Inventario
 
                 Dim queryInsertarInventario As New SqlCommand("insert into Inventario_Sucursal values('" + idNombre_sucursal + "' ,'" + idNombre_Articulo + "','" + idtipo_articulo + "', " + TXT_Cantidad.Text + ")", cn)
                 queryInsertarInventario.ExecuteNonQuery()
+                MsgBox("Datos actualizados")
 
-                cn.Close()
             Catch ex As Exception
                 MsgBox(ex.Message)
             Finally
-                MsgBox("Datos actualizados")
+
+                cn.Close()
             End Try
 
 
