@@ -1,9 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Public Class Inventario
-    Dim cn As New SqlConnection
-    Dim arr_tipo_articulo As New ArrayList
-    Dim arr_nombre_articulo As New ArrayList
-    Dim arr_nombre_sucursal As New ArrayList
+
+
 
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -54,6 +52,9 @@ Public Class Inventario
 
             End While
             leerDatos.Close()
+
+            cn.Close()
+
 
 
         Catch ex As Exception
@@ -131,7 +132,7 @@ Public Class Inventario
         Dim idtipo_articulo As String = arr_tipo_articulo(CB_Tipo_Articulo.SelectedIndex)
         Dim idNombre_sucursal As String = arr_nombre_sucursal(CB_Sucursal.SelectedIndex)
 
-        MsgBox("idtipoarticulo" + idtipo_articulo)
+        cn.Open()
 
         If CB_Opciones.Text = "Disminuir" Then
             ProcesoInventario(1, idNombre_sucursal, idNombre_Articulo)
@@ -148,7 +149,7 @@ Public Class Inventario
                 Dim queryInsertarInventario As New SqlCommand("insert into Inventario_Sucursal values('" + idNombre_sucursal + "' ,'" + idNombre_Articulo + "','" + idtipo_articulo + "', " + TXT_Cantidad.Text + ")", cn)
                 queryInsertarInventario.ExecuteNonQuery()
 
-
+                cn.Close()
             Catch ex As Exception
                 MsgBox(ex.Message)
             Finally
@@ -210,6 +211,9 @@ Public Class Inventario
     End Sub
 
     Private Sub BTN_Add_Product_Click(sender As Object, e As EventArgs) Handles BTN_Add_Product.Click
+        InventarioAddArticulo.Show()
+        Me.Hide()
+
 
     End Sub
 End Class

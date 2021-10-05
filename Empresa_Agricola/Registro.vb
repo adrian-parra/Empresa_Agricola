@@ -1,7 +1,7 @@
-﻿Imports System.Data.Sql
+﻿
 Imports System.Data.SqlClient
 Public Class Registro
-    Dim cn As New SqlConnection
+
 
     Private Sub TextBox4_TextChanged(sender As Object, e As EventArgs) Handles txt_newpass.TextChanged
 
@@ -16,7 +16,7 @@ Public Class Registro
     Private Sub btn_registrar_Click(sender As Object, e As EventArgs) Handles btn_registrar.Click
 
 
-        cn.ConnectionString = conexionBD.conexion
+        cn.ConnectionString = conexion
 
         'validacion de txt
         If validarTxt() = False Then

@@ -12,7 +12,7 @@ Public Class Login
     End Sub
 
     Private Sub btn_iniciar_Click(sender As Object, e As EventArgs) Handles btn_iniciar.Click
-        cn.ConnectionString = conexionBD.conexion
+        cn.ConnectionString = conexion
         'Verificar text box 
         If txt_user.Text = "" Then
             MsgBox("Ingrese nombre de usuario", vbOKOnly + vbExclamation, "Error de usuario")
