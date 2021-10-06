@@ -18,8 +18,8 @@ Public Class Inventario
             cn.Open()
             Dim queryBuscarTipoArt As New SqlCommand("select * from Tipo_Articulo", cn)
 
-
             Dim leerDatos As SqlDataReader = queryBuscarTipoArt.ExecuteReader
+
             While leerDatos.Read
 
                 arr_tipo_articulo.Add(leerDatos.GetValue(0))
@@ -27,23 +27,19 @@ Public Class Inventario
                 CB_Tipo_Articulo.Items.Add(leerDatos.GetValue(1))
 
             End While
+
             leerDatos.Close()
 
-            Dim queryBuscarNombre_Articulo As New SqlCommand("select * from Nombre_Articulos", cn)
 
-            leerDatos = queryBuscarNombre_Articulo.ExecuteReader
-            While leerDatos.Read
 
-                arr_nombre_articulo.Add(leerDatos.GetValue(0))
 
-                CB_Nombre_Articulo.Items.Add(leerDatos.GetValue(1))
 
-            End While
-            leerDatos.Close()
 
             Dim queryBuscarNombre_Sucursal As New SqlCommand("select * from Sucursal", cn)
 
             leerDatos = queryBuscarNombre_Sucursal.ExecuteReader
+
+
             While leerDatos.Read
 
                 arr_nombre_sucursal.Add(leerDatos.GetValue(0))
@@ -51,9 +47,17 @@ Public Class Inventario
                 CB_Sucursal.Items.Add(leerDatos.GetValue(3))
 
             End While
+
+
             leerDatos.Close()
 
+
+
             cn.Close()
+
+
+
+            CB_Tipo_Articulo.SelectedIndex = 0
 
 
 
@@ -216,5 +220,29 @@ Public Class Inventario
         Me.Hide()
 
 
+    End Sub
+
+    Private Sub CB_Tipo_Articulo_SelectedValueChanged(sender As Object, e As EventArgs) Handles CB_Tipo_Articulo.SelectedValueChanged
+        CB_Nombre_Articulo.Items.Clear()
+        CB_Nombre_Articulo.Text = ""
+        arr_nombre_articulo.Clear()
+
+        Dim idtipo_articulo As String = arr_tipo_articulo(CB_Tipo_Articulo.SelectedIndex)
+
+
+        cn.Open()
+
+        Dim queryBuscarNombre_Articulo As New SqlCommand("select * from Nombre_Articulos where ID_Tipo_Articulo = '" + idtipo_articulo + "'", cn)
+        Dim leerDatos As SqlDataReader = queryBuscarNombre_Articulo.ExecuteReader
+
+        While leerDatos.Read
+
+            arr_nombre_articulo.Add(leerDatos.GetValue(0))
+
+            CB_Nombre_Articulo.Items.Add(leerDatos.GetValue(1))
+
+        End While
+        leerDatos.Close()
+        cn.Close()
     End Sub
 End Class
