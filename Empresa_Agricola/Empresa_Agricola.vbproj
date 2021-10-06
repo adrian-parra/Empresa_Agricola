@@ -73,6 +73,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Compra.Designer.vb">
+      <DependentUpon>Compra.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Compra.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="M_ConexionBD.vb" />
     <Compile Include="Inventario.Designer.vb">
       <DependentUpon>Inventario.vb</DependentUpon>
@@ -122,8 +128,17 @@
     <Compile Include="Registro.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Venta.Designer.vb">
+      <DependentUpon>Venta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Venta.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Compra.resx">
+      <DependentUpon>Compra.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inventario.resx">
       <DependentUpon>Inventario.vb</DependentUpon>
     </EmbeddedResource>
@@ -144,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Registro.resx">
       <DependentUpon>Registro.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Venta.resx">
+      <DependentUpon>Venta.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
