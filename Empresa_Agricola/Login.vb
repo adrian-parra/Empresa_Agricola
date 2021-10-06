@@ -1,5 +1,4 @@
-﻿Imports System.Data.Sql
-Imports System.Data.SqlClient
+﻿Imports System.Data.SqlClient
 Public Class Login
     Dim cn As New SqlConnection
     Private Sub link_registrar_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles link_registrar.LinkClicked
