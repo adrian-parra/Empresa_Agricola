@@ -9,7 +9,7 @@ Public Class Inventario
         If Privilegios.Privilegio = "usuario" Then
             BTN_Add_Product.Visible = False
         End If
-
+        'test
 
         cn.ConnectionString = conexion
         'consulta

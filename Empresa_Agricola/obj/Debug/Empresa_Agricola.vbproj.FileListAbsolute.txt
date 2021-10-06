@@ -23,7 +23,6 @@ C:\Users\DELL\source\repos\Empresa_Agricola\Empresa_Agricola\obj\Debug\Empresa_A
 C:\Users\DELL\source\repos\Empresa_Agricola\Empresa_Agricola\obj\Debug\Empresa_Agricola.exe
 C:\Users\DELL\source\repos\Empresa_Agricola\Empresa_Agricola\obj\Debug\Empresa_Agricola.xml
 C:\Users\DELL\source\repos\Empresa_Agricola\Empresa_Agricola\obj\Debug\Empresa_Agricola.pdb
-C:\Users\DELL\source\repos\Empresa_Agricola\Empresa_Agricola\obj\Debug\Empresa_Agricola.Form1.resources
 C:\ProyectosVisualBasic\Empresa_Agricola\Empresa_Agricola\obj\Debug\Empresa_Agricola.Inventario.resources
 C:\ProyectosVisualBasic\Empresa_Agricola\Empresa_Agricola\obj\Debug\Empresa_Agricola.Subsistema.resources
 C:\ProyectosVisualBasic\Empresa_Agricola\Empresa_Agricola\obj\Debug\Empresa_Agricola.vbproj.AssemblyReference.cache
@@ -44,3 +43,6 @@ C:\Users\Adrian\Desktop\Empresa_Agricola\Empresa_Agricola\obj\Debug\Empresa_Agri
 C:\Users\Adrian\Desktop\Empresa_Agricola\Empresa_Agricola\obj\Debug\Empresa_Agricola.exe
 C:\Users\Adrian\Desktop\Empresa_Agricola\Empresa_Agricola\obj\Debug\Empresa_Agricola.xml
 C:\Users\Adrian\Desktop\Empresa_Agricola\Empresa_Agricola\obj\Debug\Empresa_Agricola.pdb
+C:\Users\DELL\source\repos\Empresa_Agricola\Empresa_Agricola\obj\Debug\Empresa_Agricola.Inventario.resources
+C:\Users\DELL\source\repos\Empresa_Agricola\Empresa_Agricola\obj\Debug\Empresa_Agricola.InventarioAddArticulo.resources
+C:\Users\DELL\source\repos\Empresa_Agricola\Empresa_Agricola\obj\Debug\Empresa_Agricola.Subsistema.resources
