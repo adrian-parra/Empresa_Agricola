@@ -245,4 +245,8 @@ Public Class Inventario
         leerDatos.Close()
         cn.Close()
     End Sub
+
+    Private Sub CB_Opciones_KeyPress(sender As Object, e As KeyPressEventArgs) Handles CB_Opciones.KeyPress
+        e.KeyChar = ""
+    End Sub
 End Class
