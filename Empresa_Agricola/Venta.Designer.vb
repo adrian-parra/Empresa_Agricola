@@ -34,6 +34,7 @@ Partial Class Venta
         Me.Label5 = New System.Windows.Forms.Label()
         Me.BTN_Registrar_Venta = New System.Windows.Forms.Button()
         Me.TXT_Folio = New System.Windows.Forms.TextBox()
+        Me.BTN_Cunetas_Por_Cobrar = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'CB_Cliente
@@ -143,11 +144,22 @@ Partial Class Venta
         Me.TXT_Folio.Size = New System.Drawing.Size(150, 26)
         Me.TXT_Folio.TabIndex = 11
         '
+        'BTN_Cunetas_Por_Cobrar
+        '
+        Me.BTN_Cunetas_Por_Cobrar.Location = New System.Drawing.Point(339, 494)
+        Me.BTN_Cunetas_Por_Cobrar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.BTN_Cunetas_Por_Cobrar.Name = "BTN_Cunetas_Por_Cobrar"
+        Me.BTN_Cunetas_Por_Cobrar.Size = New System.Drawing.Size(171, 42)
+        Me.BTN_Cunetas_Por_Cobrar.TabIndex = 12
+        Me.BTN_Cunetas_Por_Cobrar.Text = "Cuentas_Por_Cobrar"
+        Me.BTN_Cunetas_Por_Cobrar.UseVisualStyleBackColor = True
+        '
         'Venta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(900, 563)
+        Me.Controls.Add(Me.BTN_Cunetas_Por_Cobrar)
         Me.Controls.Add(Me.TXT_Folio)
         Me.Controls.Add(Me.BTN_Registrar_Venta)
         Me.Controls.Add(Me.Label5)
@@ -180,4 +192,5 @@ Partial Class Venta
     Friend WithEvents Label5 As Label
     Friend WithEvents BTN_Registrar_Venta As Button
     Friend WithEvents TXT_Folio As TextBox
+    Friend WithEvents BTN_Cunetas_Por_Cobrar As Button
 End Class

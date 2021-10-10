@@ -128,4 +128,8 @@ Public Class Venta
         End Try
 
     End Sub
+
+    Private Sub BTN_Cunetas_Por_Cobrar_Click(sender As Object, e As EventArgs) Handles BTN_Cunetas_Por_Cobrar.Click
+        VentaCuentasPorCobrar.Show()
+    End Sub
 End Class
