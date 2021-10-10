@@ -93,6 +93,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="M_Inventario.vb" />
+    <Compile Include="M_Venta.vb" />
     <Compile Include="Privilegios.vb" />
     <Compile Include="Subsistema.Designer.vb">
       <DependentUpon>Subsistema.vb</DependentUpon>
