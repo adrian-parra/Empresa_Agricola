@@ -35,12 +35,17 @@ Partial Class Venta
         Me.BTN_Registrar_Venta = New System.Windows.Forms.Button()
         Me.TXT_Folio = New System.Windows.Forms.TextBox()
         Me.BTN_Cunetas_Por_Cobrar = New System.Windows.Forms.Button()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.BTN_Agrergar_Articulo = New System.Windows.Forms.Button()
+        Me.DGV_Articulos = New System.Windows.Forms.DataGridView()
+        Me.Button1 = New System.Windows.Forms.Button()
+        CType(Me.DGV_Articulos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'CB_Cliente
         '
         Me.CB_Cliente.FormattingEnabled = True
-        Me.CB_Cliente.Location = New System.Drawing.Point(93, 104)
+        Me.CB_Cliente.Location = New System.Drawing.Point(93, 128)
         Me.CB_Cliente.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.CB_Cliente.Name = "CB_Cliente"
         Me.CB_Cliente.Size = New System.Drawing.Size(150, 28)
@@ -49,7 +54,7 @@ Partial Class Venta
         'CB_Articulo
         '
         Me.CB_Articulo.FormattingEnabled = True
-        Me.CB_Articulo.Location = New System.Drawing.Point(93, 181)
+        Me.CB_Articulo.Location = New System.Drawing.Point(93, 352)
         Me.CB_Articulo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.CB_Articulo.Name = "CB_Articulo"
         Me.CB_Articulo.Size = New System.Drawing.Size(150, 28)
@@ -59,7 +64,7 @@ Partial Class Venta
         '
         Me.CB_Tipo_Pago.FormattingEnabled = True
         Me.CB_Tipo_Pago.Items.AddRange(New Object() {"Efectivo", "Credito"})
-        Me.CB_Tipo_Pago.Location = New System.Drawing.Point(93, 260)
+        Me.CB_Tipo_Pago.Location = New System.Drawing.Point(93, 205)
         Me.CB_Tipo_Pago.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.CB_Tipo_Pago.Name = "CB_Tipo_Pago"
         Me.CB_Tipo_Pago.Size = New System.Drawing.Size(150, 28)
@@ -67,7 +72,7 @@ Partial Class Venta
         '
         'TXT_Cantidad
         '
-        Me.TXT_Cantidad.Location = New System.Drawing.Point(93, 325)
+        Me.TXT_Cantidad.Location = New System.Drawing.Point(283, 352)
         Me.TXT_Cantidad.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TXT_Cantidad.Name = "TXT_Cantidad"
         Me.TXT_Cantidad.Size = New System.Drawing.Size(150, 26)
@@ -75,7 +80,7 @@ Partial Class Venta
         '
         'TXT_Precio
         '
-        Me.TXT_Precio.Location = New System.Drawing.Point(93, 390)
+        Me.TXT_Precio.Location = New System.Drawing.Point(465, 354)
         Me.TXT_Precio.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TXT_Precio.Name = "TXT_Precio"
         Me.TXT_Precio.Size = New System.Drawing.Size(150, 26)
@@ -84,7 +89,7 @@ Partial Class Venta
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(105, 61)
+        Me.Label1.Location = New System.Drawing.Point(105, 85)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(58, 20)
         Me.Label1.TabIndex = 5
@@ -93,7 +98,7 @@ Partial Class Venta
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(104, 156)
+        Me.Label2.Location = New System.Drawing.Point(104, 327)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(62, 20)
         Me.Label2.TabIndex = 6
@@ -102,7 +107,7 @@ Partial Class Venta
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(104, 235)
+        Me.Label3.Location = New System.Drawing.Point(104, 180)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(85, 20)
         Me.Label3.TabIndex = 7
@@ -111,7 +116,7 @@ Partial Class Venta
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(104, 294)
+        Me.Label4.Location = New System.Drawing.Point(323, 325)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(73, 20)
         Me.Label4.TabIndex = 8
@@ -120,7 +125,7 @@ Partial Class Venta
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(108, 365)
+        Me.Label5.Location = New System.Drawing.Point(480, 329)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(53, 20)
         Me.Label5.TabIndex = 9
@@ -128,7 +133,7 @@ Partial Class Venta
         '
         'BTN_Registrar_Venta
         '
-        Me.BTN_Registrar_Venta.Location = New System.Drawing.Point(82, 508)
+        Me.BTN_Registrar_Venta.Location = New System.Drawing.Point(46, 494)
         Me.BTN_Registrar_Venta.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.BTN_Registrar_Venta.Name = "BTN_Registrar_Venta"
         Me.BTN_Registrar_Venta.Size = New System.Drawing.Size(171, 42)
@@ -138,7 +143,7 @@ Partial Class Venta
         '
         'TXT_Folio
         '
-        Me.TXT_Folio.Location = New System.Drawing.Point(93, 457)
+        Me.TXT_Folio.Location = New System.Drawing.Point(93, 285)
         Me.TXT_Folio.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TXT_Folio.Name = "TXT_Folio"
         Me.TXT_Folio.Size = New System.Drawing.Size(150, 26)
@@ -146,7 +151,7 @@ Partial Class Venta
         '
         'BTN_Cunetas_Por_Cobrar
         '
-        Me.BTN_Cunetas_Por_Cobrar.Location = New System.Drawing.Point(339, 494)
+        Me.BTN_Cunetas_Por_Cobrar.Location = New System.Drawing.Point(388, 494)
         Me.BTN_Cunetas_Por_Cobrar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.BTN_Cunetas_Por_Cobrar.Name = "BTN_Cunetas_Por_Cobrar"
         Me.BTN_Cunetas_Por_Cobrar.Size = New System.Drawing.Size(171, 42)
@@ -154,11 +159,59 @@ Partial Class Venta
         Me.BTN_Cunetas_Por_Cobrar.Text = "Cuentas_Por_Cobrar"
         Me.BTN_Cunetas_Por_Cobrar.UseVisualStyleBackColor = True
         '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(104, 248)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(43, 20)
+        Me.Label6.TabIndex = 13
+        Me.Label6.Text = "Folio"
+        '
+        'BTN_Agrergar_Articulo
+        '
+        Me.BTN_Agrergar_Articulo.BackColor = System.Drawing.Color.White
+        Me.BTN_Agrergar_Articulo.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BTN_Agrergar_Articulo.FlatAppearance.BorderSize = 0
+        Me.BTN_Agrergar_Articulo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BTN_Agrergar_Articulo.Image = Global.Empresa_Agricola.My.Resources.Resources.img_ventas_btn_agregar
+        Me.BTN_Agrergar_Articulo.Location = New System.Drawing.Point(621, 327)
+        Me.BTN_Agrergar_Articulo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.BTN_Agrergar_Articulo.Name = "BTN_Agrergar_Articulo"
+        Me.BTN_Agrergar_Articulo.Size = New System.Drawing.Size(63, 72)
+        Me.BTN_Agrergar_Articulo.TabIndex = 14
+        Me.BTN_Agrergar_Articulo.UseVisualStyleBackColor = False
+        '
+        'DGV_Articulos
+        '
+        Me.DGV_Articulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGV_Articulos.Location = New System.Drawing.Point(283, 104)
+        Me.DGV_Articulos.Name = "DGV_Articulos"
+        Me.DGV_Articulos.RowHeadersWidth = 62
+        Me.DGV_Articulos.RowTemplate.Height = 28
+        Me.DGV_Articulos.Size = New System.Drawing.Size(565, 195)
+        Me.DGV_Articulos.TabIndex = 18
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(703, 494)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(171, 42)
+        Me.Button1.TabIndex = 19
+        Me.Button1.Text = "agregar cliente"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'Venta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(900, 563)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.DGV_Articulos)
+        Me.Controls.Add(Me.BTN_Agrergar_Articulo)
+        Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.BTN_Cunetas_Por_Cobrar)
         Me.Controls.Add(Me.TXT_Folio)
         Me.Controls.Add(Me.BTN_Registrar_Venta)
@@ -175,6 +228,7 @@ Partial Class Venta
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "Venta"
         Me.Text = "Venta"
+        CType(Me.DGV_Articulos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -193,4 +247,8 @@ Partial Class Venta
     Friend WithEvents BTN_Registrar_Venta As Button
     Friend WithEvents TXT_Folio As TextBox
     Friend WithEvents BTN_Cunetas_Por_Cobrar As Button
+    Friend WithEvents Label6 As Label
+    Friend WithEvents BTN_Agrergar_Articulo As Button
+    Friend WithEvents DGV_Articulos As DataGridView
+    Friend WithEvents Button1 As Button
 End Class

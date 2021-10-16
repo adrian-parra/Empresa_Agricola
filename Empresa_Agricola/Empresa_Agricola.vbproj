@@ -201,5 +201,8 @@
   <ItemGroup>
     <None Include="Resources\img-inventario-btn-agregar.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img-ventas-btn-agregar.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
