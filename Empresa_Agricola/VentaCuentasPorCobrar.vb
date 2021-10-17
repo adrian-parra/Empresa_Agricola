@@ -1,7 +1,15 @@
 ﻿Imports System.Data.SqlClient
 Public Class VentaCuentasPorCobrar
     Dim IDpedido, Adeudo As String
+    Dim folio As Boolean = False
 
+    Sub DeudaCPC()
+        Dim query_cpc As New SqlDataAdapter("select Adeudo,Estatus from Cuentas_Por_Cobrar where ID_Pedido = '" + IDpedido + "'", cn)
+        Dim tbl As New DataTable
+        query_cpc.Fill(tbl)
+
+        DGV_Cuentas_Por_Cobrar.DataSource = tbl
+    End Sub
     Private Sub BTN_Buscar_Adeudo_Click(sender As Object, e As EventArgs) Handles BTN_Buscar_Adeudo.Click
 
         Try
@@ -12,14 +20,38 @@ Public Class VentaCuentasPorCobrar
 
 
             While leerDatos.Read()
+                folio = True
                 IDpedido = leerDatos.GetValue(0)
-                MsgBox("folio encontrado con adeudo de " + leerDatos.GetValue(5).ToString)
+                MsgBox("folio encontrado con adeudo")
                 BTN_Abonar.Enabled = True
-                cn.Close()
-                Exit Sub
-            End While
 
-            MsgBox("folio incorrecto")
+
+            End While
+            leerDatos.Close()
+
+            If folio Then
+
+                DeudaCPC()
+
+                'Dim query_pedido_articulo As New SqlDataAdapter("select Articulo,Cantidad,Precio from Pedido_Articulo where ID_Articulo = '" + IDpedido + "'", cn)
+                'Dim tbl As New DataTable
+                'query_pedido_articulo.Fill(tbl)
+
+                'DGV_Articulos.DataSource = tbl
+
+                'Dim query_pedido_cliente As New SqlDataAdapter("select Tipo_Pago,Estatus,Folio from Pedidos_Clientes where ID_Pedido = '" + IDpedido + "'", cn)
+                'Dim tbl1 As New DataTable
+                'query_pedido_cliente.Fill(tbl1)
+
+                'DGV_Info_Venta.DataSource = tbl1
+
+
+
+            Else
+                MsgBox("folio incorrecto")
+            End If
+
+
 
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -75,12 +107,15 @@ Public Class VentaCuentasPorCobrar
 
 
             Else
+                'Abono
                 Dim a = CDbl(Adeudo) - CDbl(TXT_Abono.Text)
                 Dim query_cuenta_pagada As New SqlCommand("update Cuentas_Por_Cobrar set Adeudo = '" + a + "' , Estatus = 'P' where ID_Cuenta = '" + IDpedido + "'", cn)
                 query_cuenta_pagada.ExecuteNonQuery()
                 cn.Close()
 
             End If
+
+            DeudaCPC()
         Catch ex As Exception
             MsgBox(ex.Message)
 

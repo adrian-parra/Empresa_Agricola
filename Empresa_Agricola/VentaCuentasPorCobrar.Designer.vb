@@ -28,11 +28,13 @@ Partial Class VentaCuentasPorCobrar
         Me.Label2 = New System.Windows.Forms.Label()
         Me.BTN_Abonar = New System.Windows.Forms.Button()
         Me.BTN_Buscar_Adeudo = New System.Windows.Forms.Button()
+        Me.DGV_Cuentas_Por_Cobrar = New System.Windows.Forms.DataGridView()
+        CType(Me.DGV_Cuentas_Por_Cobrar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TXT_Folio
         '
-        Me.TXT_Folio.Location = New System.Drawing.Point(12, 118)
+        Me.TXT_Folio.Location = New System.Drawing.Point(223, 95)
         Me.TXT_Folio.Name = "TXT_Folio"
         Me.TXT_Folio.Size = New System.Drawing.Size(224, 26)
         Me.TXT_Folio.TabIndex = 0
@@ -40,7 +42,7 @@ Partial Class VentaCuentasPorCobrar
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(72, 70)
+        Me.Label1.Location = New System.Drawing.Point(283, 47)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(43, 20)
         Me.Label1.TabIndex = 1
@@ -48,7 +50,7 @@ Partial Class VentaCuentasPorCobrar
         '
         'TXT_Abono
         '
-        Me.TXT_Abono.Location = New System.Drawing.Point(12, 202)
+        Me.TXT_Abono.Location = New System.Drawing.Point(209, 501)
         Me.TXT_Abono.Name = "TXT_Abono"
         Me.TXT_Abono.Size = New System.Drawing.Size(224, 26)
         Me.TXT_Abono.TabIndex = 2
@@ -56,7 +58,7 @@ Partial Class VentaCuentasPorCobrar
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(72, 167)
+        Me.Label2.Location = New System.Drawing.Point(269, 466)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(56, 20)
         Me.Label2.TabIndex = 3
@@ -64,7 +66,7 @@ Partial Class VentaCuentasPorCobrar
         '
         'BTN_Abonar
         '
-        Me.BTN_Abonar.Location = New System.Drawing.Point(29, 270)
+        Me.BTN_Abonar.Location = New System.Drawing.Point(450, 492)
         Me.BTN_Abonar.Name = "BTN_Abonar"
         Me.BTN_Abonar.Size = New System.Drawing.Size(189, 38)
         Me.BTN_Abonar.TabIndex = 4
@@ -73,18 +75,30 @@ Partial Class VentaCuentasPorCobrar
         '
         'BTN_Buscar_Adeudo
         '
-        Me.BTN_Buscar_Adeudo.Location = New System.Drawing.Point(256, 112)
+        Me.BTN_Buscar_Adeudo.Location = New System.Drawing.Point(467, 89)
         Me.BTN_Buscar_Adeudo.Name = "BTN_Buscar_Adeudo"
         Me.BTN_Buscar_Adeudo.Size = New System.Drawing.Size(189, 38)
         Me.BTN_Buscar_Adeudo.TabIndex = 5
         Me.BTN_Buscar_Adeudo.Text = "Buscar"
         Me.BTN_Buscar_Adeudo.UseVisualStyleBackColor = True
         '
+        'DGV_Cuentas_Por_Cobrar
+        '
+        Me.DGV_Cuentas_Por_Cobrar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGV_Cuentas_Por_Cobrar.Location = New System.Drawing.Point(223, 203)
+        Me.DGV_Cuentas_Por_Cobrar.Name = "DGV_Cuentas_Por_Cobrar"
+        Me.DGV_Cuentas_Por_Cobrar.ReadOnly = True
+        Me.DGV_Cuentas_Por_Cobrar.RowHeadersWidth = 62
+        Me.DGV_Cuentas_Por_Cobrar.RowTemplate.Height = 28
+        Me.DGV_Cuentas_Por_Cobrar.Size = New System.Drawing.Size(409, 193)
+        Me.DGV_Cuentas_Por_Cobrar.TabIndex = 8
+        '
         'VentaCuentasPorCobrar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 485)
+        Me.ClientSize = New System.Drawing.Size(899, 724)
+        Me.Controls.Add(Me.DGV_Cuentas_Por_Cobrar)
         Me.Controls.Add(Me.BTN_Buscar_Adeudo)
         Me.Controls.Add(Me.BTN_Abonar)
         Me.Controls.Add(Me.Label2)
@@ -93,6 +107,7 @@ Partial Class VentaCuentasPorCobrar
         Me.Controls.Add(Me.TXT_Folio)
         Me.Name = "VentaCuentasPorCobrar"
         Me.Text = "VentaCuentasPorCobrar"
+        CType(Me.DGV_Cuentas_Por_Cobrar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -104,4 +119,5 @@ Partial Class VentaCuentasPorCobrar
     Friend WithEvents Label2 As Label
     Friend WithEvents BTN_Abonar As Button
     Friend WithEvents BTN_Buscar_Adeudo As Button
+    Friend WithEvents DGV_Cuentas_Por_Cobrar As DataGridView
 End Class
