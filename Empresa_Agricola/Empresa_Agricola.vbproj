@@ -141,6 +141,12 @@
     <Compile Include="VentaCuentasPorCobrar.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="VentaNewCliente.Designer.vb">
+      <DependentUpon>VentaNewCliente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VentaNewCliente.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Compra.resx">
@@ -172,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VentaCuentasPorCobrar.resx">
       <DependentUpon>VentaCuentasPorCobrar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentaNewCliente.resx">
+      <DependentUpon>VentaNewCliente.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

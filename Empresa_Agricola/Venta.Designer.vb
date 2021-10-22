@@ -151,7 +151,7 @@ Partial Class Venta
         '
         'BTN_Cunetas_Por_Cobrar
         '
-        Me.BTN_Cunetas_Por_Cobrar.Location = New System.Drawing.Point(388, 494)
+        Me.BTN_Cunetas_Por_Cobrar.Location = New System.Drawing.Point(375, 494)
         Me.BTN_Cunetas_Por_Cobrar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.BTN_Cunetas_Por_Cobrar.Name = "BTN_Cunetas_Por_Cobrar"
         Me.BTN_Cunetas_Por_Cobrar.Size = New System.Drawing.Size(171, 42)

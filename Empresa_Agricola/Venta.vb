@@ -151,12 +151,12 @@ Public Class Venta
         arr_IDcliente.Clear()
         Try
             cn.Open()
-            Dim query_Clientes As New SqlCommand("select * from Nombre_Clientes", cn)
+            Dim query_Clientes As New SqlCommand("select * from Cliente", cn)
             Dim leerDatos As SqlDataReader = query_Clientes.ExecuteReader
             While leerDatos.Read
 
                 arr_IDcliente.Add(leerDatos.GetValue(0))
-                CB_Cliente.Items.Add(leerDatos.GetValue(1))
+                CB_Cliente.Items.Add(leerDatos.GetValue(2))
 
             End While
             leerDatos.Close()
