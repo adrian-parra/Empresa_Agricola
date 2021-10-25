@@ -23,19 +23,20 @@ Partial Class Direccion
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
+        Me.CB_Ciudad = New System.Windows.Forms.ComboBox()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.CB_Municipios = New System.Windows.Forms.ComboBox()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.CB_Estados = New System.Windows.Forms.ComboBox()
+        Me.TXT_Codigo_Postal = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
+        Me.TXT_Colonia = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.TextBox7 = New System.Windows.Forms.TextBox()
+        Me.TXT_Calle = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.TextBox8 = New System.Windows.Forms.TextBox()
+        Me.TXT_Num_Exterior = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.BTN_Registrar_Direccion = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label11
@@ -47,13 +48,13 @@ Partial Class Direccion
         Me.Label11.TabIndex = 35
         Me.Label11.Text = "Ciudad"
         '
-        'ComboBox3
+        'CB_Ciudad
         '
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Location = New System.Drawing.Point(512, 352)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(162, 28)
-        Me.ComboBox3.TabIndex = 34
+        Me.CB_Ciudad.FormattingEnabled = True
+        Me.CB_Ciudad.Location = New System.Drawing.Point(512, 352)
+        Me.CB_Ciudad.Name = "CB_Ciudad"
+        Me.CB_Ciudad.Size = New System.Drawing.Size(162, 28)
+        Me.CB_Ciudad.TabIndex = 34
         '
         'Label10
         '
@@ -64,13 +65,13 @@ Partial Class Direccion
         Me.Label10.TabIndex = 33
         Me.Label10.Text = "Municipio"
         '
-        'ComboBox2
+        'CB_Municipios
         '
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(512, 259)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(162, 28)
-        Me.ComboBox2.TabIndex = 32
+        Me.CB_Municipios.FormattingEnabled = True
+        Me.CB_Municipios.Location = New System.Drawing.Point(512, 259)
+        Me.CB_Municipios.Name = "CB_Municipios"
+        Me.CB_Municipios.Size = New System.Drawing.Size(162, 28)
+        Me.CB_Municipios.TabIndex = 32
         '
         'Label9
         '
@@ -81,20 +82,20 @@ Partial Class Direccion
         Me.Label9.TabIndex = 31
         Me.Label9.Text = "Estado"
         '
-        'ComboBox1
+        'CB_Estados
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(512, 158)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(162, 28)
-        Me.ComboBox1.TabIndex = 30
+        Me.CB_Estados.FormattingEnabled = True
+        Me.CB_Estados.Location = New System.Drawing.Point(512, 158)
+        Me.CB_Estados.Name = "CB_Estados"
+        Me.CB_Estados.Size = New System.Drawing.Size(162, 28)
+        Me.CB_Estados.TabIndex = 30
         '
-        'TextBox5
+        'TXT_Codigo_Postal
         '
-        Me.TextBox5.Location = New System.Drawing.Point(202, 424)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(184, 26)
-        Me.TextBox5.TabIndex = 29
+        Me.TXT_Codigo_Postal.Location = New System.Drawing.Point(202, 424)
+        Me.TXT_Codigo_Postal.Name = "TXT_Codigo_Postal"
+        Me.TXT_Codigo_Postal.Size = New System.Drawing.Size(184, 26)
+        Me.TXT_Codigo_Postal.TabIndex = 29
         '
         'Label5
         '
@@ -105,12 +106,12 @@ Partial Class Direccion
         Me.Label5.TabIndex = 28
         Me.Label5.Text = "Codigo postal"
         '
-        'TextBox6
+        'TXT_Colonia
         '
-        Me.TextBox6.Location = New System.Drawing.Point(202, 324)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(184, 26)
-        Me.TextBox6.TabIndex = 27
+        Me.TXT_Colonia.Location = New System.Drawing.Point(202, 324)
+        Me.TXT_Colonia.Name = "TXT_Colonia"
+        Me.TXT_Colonia.Size = New System.Drawing.Size(184, 26)
+        Me.TXT_Colonia.TabIndex = 27
         '
         'Label6
         '
@@ -121,12 +122,12 @@ Partial Class Direccion
         Me.Label6.TabIndex = 26
         Me.Label6.Text = "Colonia"
         '
-        'TextBox7
+        'TXT_Calle
         '
-        Me.TextBox7.Location = New System.Drawing.Point(202, 231)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(184, 26)
-        Me.TextBox7.TabIndex = 25
+        Me.TXT_Calle.Location = New System.Drawing.Point(202, 231)
+        Me.TXT_Calle.Name = "TXT_Calle"
+        Me.TXT_Calle.Size = New System.Drawing.Size(184, 26)
+        Me.TXT_Calle.TabIndex = 25
         '
         'Label7
         '
@@ -137,12 +138,12 @@ Partial Class Direccion
         Me.Label7.TabIndex = 24
         Me.Label7.Text = "calle"
         '
-        'TextBox8
+        'TXT_Num_Exterior
         '
-        Me.TextBox8.Location = New System.Drawing.Point(202, 144)
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(184, 26)
-        Me.TextBox8.TabIndex = 23
+        Me.TXT_Num_Exterior.Location = New System.Drawing.Point(202, 144)
+        Me.TXT_Num_Exterior.Name = "TXT_Num_Exterior"
+        Me.TXT_Num_Exterior.Size = New System.Drawing.Size(184, 26)
+        Me.TXT_Num_Exterior.TabIndex = 23
         '
         'Label8
         '
@@ -153,24 +154,34 @@ Partial Class Direccion
         Me.Label8.TabIndex = 22
         Me.Label8.Text = "Numero exterior"
         '
+        'BTN_Registrar_Direccion
+        '
+        Me.BTN_Registrar_Direccion.Location = New System.Drawing.Point(394, 514)
+        Me.BTN_Registrar_Direccion.Name = "BTN_Registrar_Direccion"
+        Me.BTN_Registrar_Direccion.Size = New System.Drawing.Size(223, 43)
+        Me.BTN_Registrar_Direccion.TabIndex = 36
+        Me.BTN_Registrar_Direccion.Text = "Registrar direccion"
+        Me.BTN_Registrar_Direccion.UseVisualStyleBackColor = True
+        '
         'Direccion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(877, 583)
+        Me.Controls.Add(Me.BTN_Registrar_Direccion)
         Me.Controls.Add(Me.Label11)
-        Me.Controls.Add(Me.ComboBox3)
+        Me.Controls.Add(Me.CB_Ciudad)
         Me.Controls.Add(Me.Label10)
-        Me.Controls.Add(Me.ComboBox2)
+        Me.Controls.Add(Me.CB_Municipios)
         Me.Controls.Add(Me.Label9)
-        Me.Controls.Add(Me.ComboBox1)
-        Me.Controls.Add(Me.TextBox5)
+        Me.Controls.Add(Me.CB_Estados)
+        Me.Controls.Add(Me.TXT_Codigo_Postal)
         Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.TextBox6)
+        Me.Controls.Add(Me.TXT_Colonia)
         Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.TextBox7)
+        Me.Controls.Add(Me.TXT_Calle)
         Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.TextBox8)
+        Me.Controls.Add(Me.TXT_Num_Exterior)
         Me.Controls.Add(Me.Label8)
         Me.Name = "Direccion"
         Me.Text = "Direccion"
@@ -180,17 +191,18 @@ Partial Class Direccion
     End Sub
 
     Friend WithEvents Label11 As Label
-    Friend WithEvents ComboBox3 As ComboBox
+    Friend WithEvents CB_Ciudad As ComboBox
     Friend WithEvents Label10 As Label
-    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents CB_Municipios As ComboBox
     Friend WithEvents Label9 As Label
-    Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents TextBox5 As TextBox
+    Friend WithEvents CB_Estados As ComboBox
+    Friend WithEvents TXT_Codigo_Postal As TextBox
     Friend WithEvents Label5 As Label
-    Friend WithEvents TextBox6 As TextBox
+    Friend WithEvents TXT_Colonia As TextBox
     Friend WithEvents Label6 As Label
-    Friend WithEvents TextBox7 As TextBox
+    Friend WithEvents TXT_Calle As TextBox
     Friend WithEvents Label7 As Label
-    Friend WithEvents TextBox8 As TextBox
+    Friend WithEvents TXT_Num_Exterior As TextBox
     Friend WithEvents Label8 As Label
+    Friend WithEvents BTN_Registrar_Direccion As Button
 End Class

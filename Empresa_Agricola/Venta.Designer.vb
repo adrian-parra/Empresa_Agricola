@@ -38,7 +38,7 @@ Partial Class Venta
         Me.Label6 = New System.Windows.Forms.Label()
         Me.BTN_Agrergar_Articulo = New System.Windows.Forms.Button()
         Me.DGV_Articulos = New System.Windows.Forms.DataGridView()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.BTN_Add_Cliente = New System.Windows.Forms.Button()
         CType(Me.DGV_Articulos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -192,15 +192,15 @@ Partial Class Venta
         Me.DGV_Articulos.Size = New System.Drawing.Size(565, 195)
         Me.DGV_Articulos.TabIndex = 18
         '
-        'Button1
+        'BTN_Add_Cliente
         '
-        Me.Button1.Location = New System.Drawing.Point(703, 494)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(171, 42)
-        Me.Button1.TabIndex = 19
-        Me.Button1.Text = "agregar cliente"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.BTN_Add_Cliente.Location = New System.Drawing.Point(703, 494)
+        Me.BTN_Add_Cliente.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.BTN_Add_Cliente.Name = "BTN_Add_Cliente"
+        Me.BTN_Add_Cliente.Size = New System.Drawing.Size(171, 42)
+        Me.BTN_Add_Cliente.TabIndex = 19
+        Me.BTN_Add_Cliente.Text = "agregar cliente"
+        Me.BTN_Add_Cliente.UseVisualStyleBackColor = True
         '
         'Venta
         '
@@ -208,7 +208,7 @@ Partial Class Venta
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(900, 563)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.BTN_Add_Cliente)
         Me.Controls.Add(Me.DGV_Articulos)
         Me.Controls.Add(Me.BTN_Agrergar_Articulo)
         Me.Controls.Add(Me.Label6)
@@ -250,5 +250,5 @@ Partial Class Venta
     Friend WithEvents Label6 As Label
     Friend WithEvents BTN_Agrergar_Articulo As Button
     Friend WithEvents DGV_Articulos As DataGridView
-    Friend WithEvents Button1 As Button
+    Friend WithEvents BTN_Add_Cliente As Button
 End Class

@@ -221,4 +221,9 @@ Public Class Venta
             TXT_Precio.Text = ""
         End If
     End Sub
+
+    Private Sub BTN_Add_Cliente_Click(sender As Object, e As EventArgs) Handles BTN_Add_Cliente.Click
+        VentaNewCliente.Show()
+
+    End Sub
 End Class

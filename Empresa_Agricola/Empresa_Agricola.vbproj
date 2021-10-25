@@ -79,6 +79,12 @@
     <Compile Include="Compra.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Direccion.Designer.vb">
+      <DependentUpon>Direccion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Direccion.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="M_ConexionBD.vb" />
     <Compile Include="Inventario.Designer.vb">
       <DependentUpon>Inventario.vb</DependentUpon>
@@ -92,6 +98,7 @@
     <Compile Include="InventarioAddArticulo.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="M_Direccion.vb" />
     <Compile Include="M_Inventario.vb" />
     <Compile Include="M_Venta.vb" />
     <Compile Include="Privilegios.vb" />
@@ -151,6 +158,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Compra.resx">
       <DependentUpon>Compra.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Direccion.resx">
+      <DependentUpon>Direccion.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventario.resx">
       <DependentUpon>Inventario.vb</DependentUpon>
