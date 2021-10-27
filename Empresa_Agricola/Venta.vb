@@ -323,7 +323,57 @@ Public Class Venta
 
     End Sub
 
-    Private Sub CB_Cliente_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CB_Cliente.SelectedIndexChanged
 
+
+    Private Sub CB_Cliente_KeyPress(sender As Object, e As KeyPressEventArgs) Handles CB_Cliente.KeyPress
+        e.KeyChar = ""
+    End Sub
+
+    Private Sub CB_Tipo_Pago_KeyPress(sender As Object, e As KeyPressEventArgs) Handles CB_Tipo_Pago.KeyPress
+        e.KeyChar = ""
+    End Sub
+
+    Private Sub CB_Articulo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles CB_Articulo.KeyPress
+        e.KeyChar = ""
+    End Sub
+
+    Private Sub TXT_Cantidad_TextChanged(sender As Object, e As EventArgs) Handles TXT_Cantidad.TextChanged
+
+    End Sub
+
+    Private Sub TXT_Cantidad_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TXT_Cantidad.KeyPress
+        If e.KeyChar = ChrW(8) Then
+            Exit Sub
+        End If
+
+        Dim caracteres As String = "0123456789"
+        Dim caracterCorrecto As Boolean = False
+        For i = 1 To caracteres.Length
+            If Mid(caracteres, i, 1) = e.KeyChar Then
+                caracterCorrecto = True
+            End If
+        Next
+
+        If Not caracterCorrecto Then
+            e.KeyChar = ""
+        End If
+    End Sub
+
+    Private Sub TXT_Precio_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TXT_Precio.KeyPress
+        If e.KeyChar = ChrW(8) Then
+            Exit Sub
+        End If
+
+        Dim caracteres As String = "0123456789"
+        Dim caracterCorrecto As Boolean = False
+        For i = 1 To caracteres.Length
+            If Mid(caracteres, i, 1) = e.KeyChar Then
+                caracterCorrecto = True
+            End If
+        Next
+
+        If Not caracterCorrecto Then
+            e.KeyChar = ""
+        End If
     End Sub
 End Class
