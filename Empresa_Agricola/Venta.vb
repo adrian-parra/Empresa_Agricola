@@ -6,7 +6,85 @@ Public Class Venta
 
     End Sub
 
+    Function GenerarFolio()
+        Dim folio As String = ""
+        Dim numAleatorio As New Random(CInt(Date.Now.Ticks And Integer.MaxValue))
+
+        Dim al = System.Convert.ToString(numAleatorio.Next)
+
+
+
+        Dim leerdatos As SqlDataReader
+
+        Try
+            cn.Open()
+            Dim query_id_pedido_cliente As New SqlCommand("select max(ID_Pedido) from Pedidos_Clientes", cn)
+
+            leerdatos = query_id_pedido_cliente.ExecuteReader
+
+            leerdatos.Read()
+
+            If leerdatos.GetValue(0).ToString = "" Then
+                folio = "1"
+            Else
+                folio = (CInt(leerdatos.GetValue(0)) + 1).ToString
+            End If
+
+
+            'crear folio
+            Dim numCarcateres As Integer = 10 - folio.Length
+
+
+            If numCarcateres <= al.Length Then
+                folio += Mid(al, 1, numCarcateres)
+            Else
+                Dim caracfaltantes As Integer = numCarcateres - al.Length
+
+
+
+                folio += Mid(al, 1, al.Length)
+
+                For i = 1 To caracfaltantes
+                    folio += "0"
+                Next
+
+
+
+            End If
+            leerdatos.Close()
+            cn.Close()
+
+            Return folio
+
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            cn.Close()
+            If Not leerdatos.IsClosed Then
+                leerdatos.Close()
+            End If
+        End Try
+    End Function
+
+    Sub limpiartext()
+        CB_Cliente.Text = ""
+        CB_Tipo_Pago.Text = ""
+    End Sub
+
     Private Sub BTN_Registrar_Venta_Click(sender As Object, e As EventArgs) Handles BTN_Registrar_Venta.Click
+        'VALIDAR TEXTBOX,COMBOBOX
+        If CB_Cliente.Text = "" Then
+            MsgBox("CAMPOS FALTANTES")
+            Exit Sub
+        ElseIf CB_Tipo_Pago.Text = "" Then
+            MsgBox("CAMPOS FALTANTES")
+            Exit Sub
+        End If
+
+        'GENERAR FOLIO
+        Dim folio As String = GenerarFolio()
+
+
         'OBTENER ID
         Dim IDcliente As String = arr_IDcliente(CB_Cliente.SelectedIndex)
         Dim IDarticulo As String = arr_nombre_articulo(CB_Articulo.SelectedIndex)
@@ -14,9 +92,10 @@ Public Class Venta
 
         'REGISTRAR EL PEDIDO DEL CLIENTE
 
-        cn.Open()
+
         Try
-            Dim query_Pedidos_Clientes As New SqlCommand("insert into Pedidos_Clientes values('" + IDcliente + "' ,'" + CB_Tipo_Pago.Text + "','ACT','" + TXT_Folio.Text + "')", cn)
+            cn.Open()
+            Dim query_Pedidos_Clientes As New SqlCommand("insert into Pedidos_Clientes values('" + IDcliente + "' ,'" + CB_Tipo_Pago.Text + "','PEN','" + folio + "')", cn)
             query_Pedidos_Clientes.ExecuteNonQuery()
 
         Catch ex As Exception
@@ -26,10 +105,11 @@ Public Class Venta
         End Try
 
         'REGISTRAR EL PEDIDO DE ARTICULOS
+        Dim leerDatos As SqlDataReader
         Try
             'TRAER ID DE PEDIDO
-            Dim query_folio_pedidos_cliente As New SqlCommand("select * from Pedidos_Clientes where Folio = '" + TXT_Folio.Text + "'", cn)
-            Dim leerDatos As SqlDataReader = query_folio_pedidos_cliente.ExecuteReader
+            Dim query_folio_pedidos_cliente As New SqlCommand("select * from Pedidos_Clientes where Folio = '" + folio + "'", cn)
+            leerDatos = query_folio_pedidos_cliente.ExecuteReader
             leerDatos.Read()
             Dim ID_Pedido_Cliente As String = leerDatos.GetValue(0)
 
@@ -43,7 +123,11 @@ Public Class Venta
             Next
 
         Catch ex As Exception
+            cn.Close()
+            leerDatos.Close()
+
             MsgBox(ex.Message)
+            Exit Sub
         End Try
 
 
@@ -55,19 +139,25 @@ Public Class Venta
             'TRAER EL PEDIDO DEL CLIENTE CON EL FOLIO
             Try
 
-                Dim query_folio_pedidos_cliente As New SqlCommand("select * from Pedidos_Clientes where Folio = '" + TXT_Folio.Text + "'", cn)
-                Dim leerDatos As SqlDataReader = query_folio_pedidos_cliente.ExecuteReader
+                Dim query_folio_pedidos_cliente As New SqlCommand("select * from Pedidos_Clientes where Folio = '" + folio + "'", cn)
+                leerDatos = query_folio_pedidos_cliente.ExecuteReader
                 leerDatos.Read()
 
 
                 Dim query_ventas As New SqlCommand("insert into Ventas values ('" + leerDatos.GetValue(0).ToString + "')", cn)
                 leerDatos.Close()
                 query_ventas.ExecuteNonQuery()
+                MsgBox("add datos efectivo")
+                articulos.Rows.Clear()
+                limpiartext()
+                BTN_Registrar_Venta.Enabled = False
             Catch ex As Exception
+                leerDatos.Close()
                 MsgBox(ex.Message)
             Finally
                 cn.Close()
-                MsgBox("add datos efectivo")
+
+
             End Try
 
 
@@ -78,21 +168,23 @@ Public Class Venta
             'REGISTRAR LA VENTA A CREDITO
 
             Try
-                Dim query_folio_pedidos_cliente As New SqlCommand("select * from Pedidos_Clientes where Folio = '" + TXT_Folio.Text + "'", cn)
-                Dim leerDatos As SqlDataReader = query_folio_pedidos_cliente.ExecuteReader
+                Dim query_folio_pedidos_cliente As New SqlCommand("select * from Pedidos_Clientes where Folio = '" + folio + "'", cn)
+                leerDatos = query_folio_pedidos_cliente.ExecuteReader
 
                 leerDatos.Read()
 
                 Dim query_ventas As New SqlCommand("insert into Cuentas_Por_Cobrar values ('" + leerDatos.GetValue(0).ToString + "','" + SumArticulos() + "','A')", cn)
                 leerDatos.Close()
                 query_ventas.ExecuteNonQuery()
-
+                MsgBox("add datos CREDITO")
+                articulos.Rows.Clear()
+                BTN_Registrar_Venta.Enabled = False
+                limpiartext()
             Catch ex As Exception
+                leerDatos.Close()
                 MsgBox(ex.Message)
             Finally
                 cn.Close()
-                MsgBox("add datos CREDITO")
-                articulos.Rows.Clear()
 
                 'LIBERAR MEMORIA
                 'cn.Dispose()
@@ -121,7 +213,7 @@ Public Class Venta
     End Function
     Private Sub Venta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-
+        BTN_Registrar_Venta.Enabled = False
         cn.ConnectionString = conexion
 
 
@@ -149,22 +241,25 @@ Public Class Venta
         'MOSTRAR CLIENTE EN CB_CLIENTES
         'LIMPIAR ARR IDCLIENTE 
         arr_IDcliente.Clear()
+
+        Dim leerDatos As SqlDataReader
         Try
             cn.Open()
             Dim query_Clientes As New SqlCommand("select * from Cliente", cn)
-            Dim leerDatos As SqlDataReader = query_Clientes.ExecuteReader
+            leerDatos = query_Clientes.ExecuteReader
             While leerDatos.Read
 
                 arr_IDcliente.Add(leerDatos.GetValue(0))
                 CB_Cliente.Items.Add(leerDatos.GetValue(2))
 
             End While
-            leerDatos.Close()
+
 
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
             cn.Close()
+            leerDatos.Close()
         End Try
 
         'MOSTRAR ARTICULOS EN CB_ARTICULOS
@@ -174,19 +269,19 @@ Public Class Venta
         Try
             cn.Open()
             Dim query_Articulos As New SqlCommand("select * from Nombre_Articulos", cn)
-            Dim leerDatos As SqlDataReader = query_Articulos.ExecuteReader
+            leerDatos = query_Articulos.ExecuteReader
             While leerDatos.Read
 
                 arr_nombre_articulo.Add(leerDatos.GetValue(0))
                 CB_Articulo.Items.Add(leerDatos.GetValue(1))
 
             End While
-            leerDatos.Close()
 
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
             cn.Close()
+            leerDatos.Close()
         End Try
 
     End Sub
@@ -213,7 +308,8 @@ Public Class Venta
             'ADD PEDIDO ARTICULO A DGB
             DGV_Articulos.DataSource = articulos
 
-
+            'HABILITAR BTN REGISTRAR VENTA
+            BTN_Registrar_Venta.Enabled = True
 
             'BORRAR DATOS DE TEXTBOX Y CB
             CB_Articulo.Text = ""
@@ -224,6 +320,10 @@ Public Class Venta
 
     Private Sub BTN_Add_Cliente_Click(sender As Object, e As EventArgs) Handles BTN_Add_Cliente.Click
         VentaNewCliente.Show()
+
+    End Sub
+
+    Private Sub CB_Cliente_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CB_Cliente.SelectedIndexChanged
 
     End Sub
 End Class

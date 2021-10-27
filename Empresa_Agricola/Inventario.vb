@@ -195,9 +195,7 @@ Public Class Inventario
 
     End Sub
 
-    Private Sub CB_Tipo_Articulo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CB_Tipo_Articulo.SelectedIndexChanged
 
-    End Sub
 
     Private Sub CB_Tipo_Articulo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles CB_Tipo_Articulo.KeyPress
         e.KeyChar = ""

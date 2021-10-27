@@ -69,6 +69,7 @@ Public Class Direccion
 
 
             'INSERTAR REGISTRO EN TABLA DIRECCIONES
+            Dim leerdatos As SqlDataReader
 
 
             Try
@@ -83,7 +84,7 @@ Public Class Direccion
 
                 'OBTENER ID DE REGISTRO
                 Dim query_id_direccion As New SqlCommand("select Max(ID_direccion) from Direcciones", cn)
-                Dim leerdatos As SqlDataReader = query_id_direccion.ExecuteReader
+                leerdatos = query_id_direccion.ExecuteReader
 
                 leerdatos.Read()
 
@@ -106,6 +107,8 @@ Public Class Direccion
 
 
             Catch ex As Exception
+                cn.Close()
+                leerdatos.Close()
                 MsgBox(ex.Message)
             End Try
 

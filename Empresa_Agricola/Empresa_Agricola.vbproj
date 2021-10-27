@@ -102,6 +102,12 @@
     <Compile Include="M_Inventario.vb" />
     <Compile Include="M_Venta.vb" />
     <Compile Include="Privilegios.vb" />
+    <Compile Include="Produccion.Designer.vb">
+      <DependentUpon>Produccion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Produccion.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Subsistema.Designer.vb">
       <DependentUpon>Subsistema.vb</DependentUpon>
     </Compile>
@@ -167,6 +173,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InventarioAddArticulo.resx">
       <DependentUpon>InventarioAddArticulo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Produccion.resx">
+      <DependentUpon>Produccion.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Subsistema.resx">
       <DependentUpon>Subsistema.vb</DependentUpon>
