@@ -8,7 +8,11 @@ Public Class VentaCuentasPorCobrar
         Dim tbl As New DataTable
         query_cpc.Fill(tbl)
 
+
+
         DGV_Cuentas_Por_Cobrar.DataSource = tbl
+
+
     End Sub
     Private Sub BTN_Buscar_Adeudo_Click(sender As Object, e As EventArgs) Handles BTN_Buscar_Adeudo.Click
 

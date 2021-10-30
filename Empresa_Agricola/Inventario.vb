@@ -140,10 +140,14 @@ Public Class Inventario
 
         If CB_Opciones.Text = "Disminuir" Then
             ProcesoInventario(1, idNombre_sucursal, idNombre_Articulo)
+            cn.Close()
+
 
         ElseIf CB_Opciones.Text = "Aumentar" Then
 
             ProcesoInventario(2, idNombre_sucursal, idNombre_Articulo)
+            cn.Close()
+
         Else
 
 

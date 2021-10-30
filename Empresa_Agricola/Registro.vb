@@ -8,9 +8,32 @@ Public Class Registro
     End Sub
 
     Private Sub Registro_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'oculto codigo de privilegio
-        LBL_Codigo.Visible = False
-        TXT_Codigo.Visible = False
+        cn.ConnectionString = conexion
+
+
+        Dim leerDatos As SqlDataReader
+        Try
+            cn.Open()
+
+            Dim query_privilegios As New SqlCommand("select * from privilegio", cn)
+            leerDatos = query_privilegios.ExecuteReader
+
+            While leerDatos.Read
+
+                CB_Puesto.Items.Add(leerDatos.GetValue(2))
+
+            End While
+
+            leerDatos.Close()
+
+            cn.Close()
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            leerDatos.Close()
+
+            cn.Close()
+        End Try
     End Sub
 
     Private Sub btn_registrar_Click(sender As Object, e As EventArgs) Handles btn_registrar.Click
@@ -162,14 +185,7 @@ Public Class Registro
     End Sub
 
     Private Sub CB_Puesto_SelectedValueChanged(sender As Object, e As EventArgs) Handles CB_Puesto.SelectedValueChanged
-        If CB_Puesto.Text = "gerente" Then
-            LBL_Codigo.Visible = True
-            TXT_Codigo.Visible = True
-        Else
-            LBL_Codigo.Visible = False
-            TXT_Codigo.Visible = False
-            TXT_Codigo.Text = ""
-        End If
+
     End Sub
 
     Private Sub CB_Puesto_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CB_Puesto.SelectedIndexChanged

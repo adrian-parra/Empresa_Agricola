@@ -48,6 +48,9 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\..\Users\Adrian\Downloads\itextsharp\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -99,6 +102,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="M_Direccion.vb" />
+    <Compile Include="M_Generar_Pdf.vb" />
     <Compile Include="M_Inventario.vb" />
     <Compile Include="M_Venta.vb" />
     <Compile Include="Privilegios.vb" />
@@ -231,6 +235,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\img-ventas-btn-agregar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_Subsistemas_Inventario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_subsistemas_compras.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_subsistemas_venta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_subsistemas_finanzas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_subsistemas_cerrar_sesion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_subsistemas_perfil_info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_subsistemas_subsistemas.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -37,6 +37,7 @@ Partial Class Login
         Me.txt_password.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_password.Location = New System.Drawing.Point(122, 437)
         Me.txt_password.Name = "txt_password"
+        Me.txt_password.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txt_password.Size = New System.Drawing.Size(506, 37)
         Me.txt_password.TabIndex = 4
         '
@@ -52,7 +53,6 @@ Partial Class Login
         '
         Me.link_registrar.AutoSize = True
         Me.link_registrar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.link_registrar.LinkVisited = True
         Me.link_registrar.Location = New System.Drawing.Point(372, 518)
         Me.link_registrar.Name = "link_registrar"
         Me.link_registrar.Size = New System.Drawing.Size(264, 22)

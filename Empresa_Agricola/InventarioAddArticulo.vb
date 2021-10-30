@@ -43,4 +43,26 @@ Public Class InventarioAddArticulo
 
 
     End Sub
+
+    Private Sub CB_Tipo_Articulo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles CB_Tipo_Articulo.KeyPress
+        e.KeyChar = ""
+    End Sub
+
+    Private Sub TXT_Nombre_Articulo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TXT_Nombre_Articulo.KeyPress
+        If e.KeyChar = ChrW(8) Then
+            Exit Sub
+        End If
+
+        Dim caracteres As String = "abcdefghijklmnopqrstvwxyzABCDEFGHIJKLMNOPQRSTVWXYZ"
+        Dim caracterCorrecto As Boolean = False
+        For i = 1 To caracteres.Length
+            If Mid(caracteres, i, 1) = e.KeyChar Then
+                caracterCorrecto = True
+            End If
+        Next
+
+        If Not caracterCorrecto Then
+            e.KeyChar = ""
+        End If
+    End Sub
 End Class

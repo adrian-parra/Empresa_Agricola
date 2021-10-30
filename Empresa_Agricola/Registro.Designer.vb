@@ -151,7 +151,6 @@ Partial Class Registro
         '
         Me.CB_Puesto.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CB_Puesto.FormattingEnabled = True
-        Me.CB_Puesto.Items.AddRange(New Object() {"usuario", "gerente"})
         Me.CB_Puesto.Location = New System.Drawing.Point(146, 256)
         Me.CB_Puesto.Name = "CB_Puesto"
         Me.CB_Puesto.Size = New System.Drawing.Size(283, 38)

@@ -11,7 +11,7 @@ Public Class Login
     End Sub
 
     Private Sub btn_iniciar_Click(sender As Object, e As EventArgs) Handles btn_iniciar.Click
-        cn.ConnectionString = conexion
+
         'Verificar text box 
         If txt_user.Text = "" Then
             MsgBox("Ingrese nombre de usuario", vbOKOnly + vbExclamation, "Error de usuario")
@@ -21,9 +21,9 @@ Public Class Login
             txt_password.Focus()
         Else
             'buscar usaurio en la bd
-
+            cn.ConnectionString = conexion
             'consulta
-            Dim queryBuscarUser As New SqlCommand("select NombreUsuario,Password ,Puesto from Usuario", cn)
+            Dim queryBuscarUser As New SqlCommand("select * from Usuario", cn)
             Try
                 'inicio conexion
                 cn.Open()
@@ -33,9 +33,12 @@ Public Class Login
                 Dim leerDatos As SqlDataReader = queryBuscarUser.ExecuteReader
                 While leerDatos.Read
                     'BUSCAR USUARIO EN LO DATOS
-                    If txt_user.Text = leerDatos.GetValue(0) And txt_password.Text = leerDatos.GetValue(1) Then
+                    If txt_user.Text = leerDatos.GetValue(1) And txt_password.Text = leerDatos.GetValue(2) Then
 
-                        Privilegios.Privilegio = leerDatos.GetValue(2)
+                        Privilegios.Privilegio = leerDatos.GetValue(3)
+                        Privilegios.Nombre = leerDatos.GetValue(1)
+                        Privilegios.usuario = leerDatos.GetValue(2)
+
                         Subsistema.Show()
 
                         cn.Close()
