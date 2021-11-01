@@ -26,7 +26,9 @@ Public Class VentaNewCliente
                     Dim query_add_cliente As New SqlCommand("insert into Cliente values('" + M_Direccion.IDdireccion + "','" + TXT_Nombre.Text + "','" + TXT_Telefono.Text + "','" + TXT_Correo.Text + "','" + TXT_Rfc.Text + "')", cn)
                     query_add_cliente.ExecuteNonQuery()
 
-                    MsgBox("cliente agregado")
+
+                    CreateAlert("Cliente registrado con exito", "", "succes", "small", True, 3)
+
                     M_Direccion.IDdireccion = ""
                     M_Direccion.TipoDireccion = ""
 
@@ -57,11 +59,23 @@ Public Class VentaNewCliente
 
     Private Sub BTN_Agregar_Direccion_Click(sender As Object, e As EventArgs) Handles BTN_Agregar_Direccion.Click
         'AGREGAR AL MODULO TIPO DE DIRECCION
-        M_Direccion.TipoDireccion = "cliente"
-        Direccion.Show()
 
-        BTN_Agregar_Direccion.Enabled = False
+        If M_Direccion.IDdireccion <> "" Then
+            CreateAlert("la direccion del cliente ya fue agregada " + vbNewLine + "registre al cliente", "", "error", "tiny", False, 3)
+        Else
+            M_Direccion.TipoDireccion = "cliente"
+            Direccion.ShowDialog()
+        End If
 
+
+
+
+
+
+    End Sub
+
+    Private Sub VentaNewCliente_Closed(sender As Object, e As EventArgs) Handles Me.Closed
+        Venta.Show()
 
     End Sub
 End Class

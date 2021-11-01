@@ -34,9 +34,9 @@ Partial Class Venta
         Me.Label5 = New System.Windows.Forms.Label()
         Me.BTN_Registrar_Venta = New System.Windows.Forms.Button()
         Me.BTN_Cunetas_Por_Cobrar = New System.Windows.Forms.Button()
-        Me.BTN_Agrergar_Articulo = New System.Windows.Forms.Button()
         Me.DGV_Articulos = New System.Windows.Forms.DataGridView()
         Me.BTN_Add_Cliente = New System.Windows.Forms.Button()
+        Me.BTN_Agrergar_Articulo = New System.Windows.Forms.Button()
         CType(Me.DGV_Articulos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -149,20 +149,6 @@ Partial Class Venta
         Me.BTN_Cunetas_Por_Cobrar.Text = "Cuentas_Por_Cobrar"
         Me.BTN_Cunetas_Por_Cobrar.UseVisualStyleBackColor = True
         '
-        'BTN_Agrergar_Articulo
-        '
-        Me.BTN_Agrergar_Articulo.BackColor = System.Drawing.Color.White
-        Me.BTN_Agrergar_Articulo.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BTN_Agrergar_Articulo.FlatAppearance.BorderSize = 0
-        Me.BTN_Agrergar_Articulo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BTN_Agrergar_Articulo.Image = Global.Empresa_Agricola.My.Resources.Resources.img_ventas_btn_agregar
-        Me.BTN_Agrergar_Articulo.Location = New System.Drawing.Point(811, 326)
-        Me.BTN_Agrergar_Articulo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.BTN_Agrergar_Articulo.Name = "BTN_Agrergar_Articulo"
-        Me.BTN_Agrergar_Articulo.Size = New System.Drawing.Size(63, 72)
-        Me.BTN_Agrergar_Articulo.TabIndex = 14
-        Me.BTN_Agrergar_Articulo.UseVisualStyleBackColor = False
-        '
         'DGV_Articulos
         '
         Me.DGV_Articulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
@@ -182,6 +168,20 @@ Partial Class Venta
         Me.BTN_Add_Cliente.TabIndex = 19
         Me.BTN_Add_Cliente.Text = "agregar cliente"
         Me.BTN_Add_Cliente.UseVisualStyleBackColor = True
+        '
+        'BTN_Agrergar_Articulo
+        '
+        Me.BTN_Agrergar_Articulo.BackColor = System.Drawing.Color.White
+        Me.BTN_Agrergar_Articulo.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BTN_Agrergar_Articulo.FlatAppearance.BorderSize = 0
+        Me.BTN_Agrergar_Articulo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BTN_Agrergar_Articulo.Image = Global.Empresa_Agricola.My.Resources.Resources.img_ventas_btn_agregar
+        Me.BTN_Agrergar_Articulo.Location = New System.Drawing.Point(811, 326)
+        Me.BTN_Agrergar_Articulo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.BTN_Agrergar_Articulo.Name = "BTN_Agrergar_Articulo"
+        Me.BTN_Agrergar_Articulo.Size = New System.Drawing.Size(63, 72)
+        Me.BTN_Agrergar_Articulo.TabIndex = 14
+        Me.BTN_Agrergar_Articulo.UseVisualStyleBackColor = False
         '
         'Venta
         '

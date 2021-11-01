@@ -90,7 +90,8 @@ Public Class Direccion
 
                 M_Direccion.IDdireccion = leerdatos.GetValue(0)
 
-                MsgBox("Direccion registrada")
+
+                CreateAlert("direccion de cliente agregada", "", "succes", "small", True, 3)
 
                 'BLOQUEAR BTN DIRECCION
                 'VentaNewCliente.BTN_Agregar_Direccion.Enabled = False
@@ -100,10 +101,11 @@ Public Class Direccion
                 leerdatos.Close()
 
                 'ejecutar proceso asyncrono
-                Registrar()
+                'Registrar()
 
                 'CERRAR LA VENTANA
                 Me.Close()
+                Dispose()
 
 
             Catch ex As Exception
@@ -166,5 +168,9 @@ Public Class Direccion
         cn.Close()
         leerdatos.Close()
 
+    End Sub
+
+    Private Sub Direccion_Closed(sender As Object, e As EventArgs) Handles Me.Closed
+        Dispose()
     End Sub
 End Class

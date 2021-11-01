@@ -13,13 +13,13 @@ Module M_Generar_Pdf
 
 
 
-    Public Function Reporte_Venta(query_tabla As String)
+    Public Function Reporte_Venta(query_tabla As String, folio As String, fecha As String, total As String, cliente As String, MetodoPago As String)
         'CREANDO PDF Y ASIGNANDOLE NOMBRE
-        Dim pdfwriter As PdfWriter = PdfWriter.GetInstance(pdfDoc, New FileStream("demo.pdf", FileMode.Create))
+        Dim pdfwriter As PdfWriter = PdfWriter.GetInstance(pdfDoc, New FileStream("Documento.pdf", FileMode.Create))
 
         'FUNETE DE LETRA
         Dim Fon8 As New Font(FontFactory.GetFont(FontFactory.HELVETICA, 8, iTextSharp.text.Font.NORMAL))
-        Dim FonB8 As New Font(FontFactory.GetFont(FontFactory.HELVETICA, 8, iTextSharp.text.Font.BOLD, BaseColor.WHITE))
+        Dim FonB8 As New Font(FontFactory.GetFont(FontFactory.HELVETICA, 8, iTextSharp.text.Font.BOLD, BaseColor.BLACK))
         Dim FonB10 As New Font(FontFactory.GetFont(FontFactory.HELVETICA, 10, iTextSharp.text.Font.BOLD))
 
 
@@ -92,7 +92,7 @@ Module M_Generar_Pdf
         table.AddCell(CVacio)
 
         'COLUMNA 4
-        col = New PdfPCell(New Phrase("12345678", Fon8))
+        col = New PdfPCell(New Phrase(folio, Fon8))
         col.HorizontalAlignment = Element.ALIGN_CENTER
         col.Border = 4
         col.Border += 8
@@ -109,7 +109,7 @@ Module M_Generar_Pdf
         table.AddCell(CVacio)
 
         'COLUMNA 4
-        col = New PdfPCell(New Phrase("FECHA", FonB10))
+        col = New PdfPCell(New Phrase("FECHA / HORA", FonB10))
         col.HorizontalAlignment = Element.ALIGN_CENTER
         col.Border = 4
         col.Border += 8
@@ -125,7 +125,7 @@ Module M_Generar_Pdf
         table.AddCell(CVacio)
 
         'COLUMNA 4
-        col = New PdfPCell(New Phrase("23/07/2012", Fon8))
+        col = New PdfPCell(New Phrase(fecha, Fon8))
         col.HorizontalAlignment = Element.ALIGN_CENTER
         col.Border = 4
         col.Border += 8
@@ -139,7 +139,7 @@ Module M_Generar_Pdf
         'COLUMNA 3
         table.AddCell(CVacio)
         'COLUMNA 4
-        col = New PdfPCell(New Phrase("f0001-00004", Fon8))
+        col = New PdfPCell(New Phrase("", Fon8))
         col.HorizontalAlignment = Element.ALIGN_CENTER
         col.Border = 6
         col.Border += 8
@@ -168,8 +168,8 @@ Module M_Generar_Pdf
         For i = 0 To tbl.Columns.Count - 1
             col = New PdfPCell(New Phrase(tbl.Columns(i).ToString, FonB8))
             col.HorizontalAlignment = Element.ALIGN_CENTER
-            col.BackgroundColor = BaseColor.BLUE
-            col.BorderColor = BaseColor.BLUE
+            ' col.BackgroundColor = BaseColor.BLUE
+            'col.BorderColor = BaseColor.BLUE
             col.Padding = 5.0F
 
             table.AddCell(col)
@@ -187,12 +187,18 @@ Module M_Generar_Pdf
         For i = 0 To tbl.Rows.Count - 1
             For j = 0 To tbl.Columns.Count - 1
                 'CELDA 1 ID
-                col = New PdfPCell(New Phrase(tbl.Rows(i)(j), Fon8))
+
+                If j = 3 Then
+                    col = New PdfPCell(New Phrase("$" + tbl.Rows(i)(j).ToString, Fon8))
+                Else
+                    col = New PdfPCell(New Phrase(tbl.Rows(i)(j), Fon8))
+                End If
+
                 col.HorizontalAlignment = Element.ALIGN_CENTER
                 col.Border = 6
                 col.Border += 8
 
-                col.BackgroundColor = BaseColor.CYAN
+                'col.BackgroundColor = BaseColor.CYAN
 
                 col.Padding = 2.0F
 
@@ -200,13 +206,111 @@ Module M_Generar_Pdf
             Next
         Next
 
+        'AGREGO LA TABLA ARTICULOS
         pdfDoc.Add(table)
+
+
+        'CREAR TOTAL DE FACTURA
+        table = New PdfPTable(tbl.Columns.Count)
+        table.WidthPercentage = 95
+
+
+
+        For i = 1 To tbl.Columns.Count
+
+            If i = 1 Then
+                col = New PdfPCell(New Phrase("METODO DE PAGO:", FonB8))
+                col.HorizontalAlignment = Element.ALIGN_RIGHT
+                col.Border = 0
+                table.AddCell(col)
+
+            ElseIf i = 2 Then
+                col = New PdfPCell(New Phrase(MetodoPago, Fon8))
+                col.HorizontalAlignment = Element.ALIGN_LEFT
+                col.Border = 0
+                table.AddCell(col)
+
+
+            ElseIf i = tbl.Columns.Count - 1 Then
+                col = New PdfPCell(New Phrase("TOTAL", FonB8))
+                col.HorizontalAlignment = Element.ALIGN_RIGHT
+                col.Border = 0
+
+                table.AddCell(col)
+            ElseIf i = tbl.Columns.Count Then
+                col = New PdfPCell(New Phrase("$" + total + ".0000", FonB8))
+                col.HorizontalAlignment = Element.ALIGN_CENTER
+
+                table.AddCell(col)
+            Else
+                table.AddCell(CVacio)
+            End If
+
+
+
+        Next
+
+        For i = 1 To tbl.Columns.Count
+            If i = 1 Then
+                col = New PdfPCell(New Phrase("CLIENTE:", FonB8))
+                col.HorizontalAlignment = Element.ALIGN_RIGHT
+                col.Border = 0
+
+                table.AddCell(col)
+            ElseIf i = 2 Then
+                col = New PdfPCell(New Phrase(cliente, Fon8))
+                col.HorizontalAlignment = Element.ALIGN_LEFT
+                col.Border = 0
+
+                table.AddCell(col)
+            Else
+
+                table.AddCell(CVacio)
+
+            End If
+
+        Next
+
+        For i = 1 To tbl.Columns.Count
+            If i = 1 Then
+                col = New PdfPCell(New Phrase("VENDEDOR:", FonB8))
+                col.HorizontalAlignment = Element.ALIGN_RIGHT
+                col.Border = 0
+
+                table.AddCell(col)
+            ElseIf i = 2 Then
+                col = New PdfPCell(New Phrase(Privilegios.Nombre, Fon8))
+                col.HorizontalAlignment = Element.ALIGN_LEFT
+                col.Border = 0
+
+                table.AddCell(col)
+            Else
+
+                table.AddCell(CVacio)
+
+            End If
+
+        Next
+
+
+
+
+
+
+
+
+
+
+
+
+        pdfDoc.Add(table)
+
 
         'CIERRO LA ESCRITURA EN PDF
         pdfDoc.Close()
 
         'LO ABRO EN NAVEGADOR
-        Shell("cmd.exe /k" + "start demo.pdf && exit", vbHide)
+        Shell("cmd.exe /k" + "start Documento.pdf && exit", vbHide)
         Return 0
     End Function
 
@@ -226,6 +330,84 @@ Module M_Generar_Pdf
         table.AddCell(col)
 
         pdfDoc.Add(table)
+
+    End Sub
+
+
+    Public Sub GuardarPdfBd(folio As String, id_cliente As Integer)
+
+        Dim pdf As String = "documento.pdf"
+        ' Dim ruta As New FileStream(pdf, FileMode.Open, FileAccess.Read)
+        'Dim binario(ruta.Length) As Byte
+        'ruta.Read(binario, 0, ruta.Length)
+        'ruta.Close()
+
+        Try
+            cn.Open()
+
+            Dim query_guardar_pdf As New SqlCommand("sp_mant_pdf", cn)
+            query_guardar_pdf.CommandType = CommandType.StoredProcedure
+            query_guardar_pdf.Parameters.AddWithValue("@Factura", File.ReadAllBytes(pdf))
+            query_guardar_pdf.Parameters.AddWithValue("@Folio", folio)
+            query_guardar_pdf.Parameters.AddWithValue("@ID_Cliente", id_cliente)
+
+
+            query_guardar_pdf.ExecuteNonQuery()
+            cn.Close()
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            cn.Close()
+        End Try
+
+
+
+    End Sub
+
+    Public Sub TraerPdfBd()
+        Try
+            cn.Open()
+            Dim directorioarchivo As String = System.AppDomain.CurrentDomain.BaseDirectory() + "DocumentoTemp.pdf"
+            Dim query_traer_pdf_bd As New SqlCommand("select * from Documentos where ID_Documento = 1", cn)
+            Dim leerdato As SqlDataReader = query_traer_pdf_bd.ExecuteReader
+
+            If leerdato.HasRows Then
+                While leerdato.Read
+                    If leerdato("Factura") IsNot DBNull.Value Then
+                        Dim bytes() As Byte
+                        bytes = leerdato("Factura")
+                        BytesAArchivo(bytes, directorioarchivo)
+
+                    End If
+                End While
+            End If
+
+        Catch ex As Exception
+
+            CreateAlert(ex.Message, "", "error", "tiny", True, 10)
+            cn.Close()
+        End Try
+    End Sub
+
+    Private Sub BytesAArchivo(ByVal bytes() As Byte, ByVal path As String)
+
+
+        File.WriteAllBytes(path, bytes)
+
+        Exit Sub
+        Dim k As Long
+        If bytes Is Nothing Then Exit Sub
+
+        Try
+            k = UBound(bytes)
+
+            Dim fs As New FileStream(path, FileMode.OpenOrCreate, FileAccess.Write)
+            fs.Write(bytes, 0, k)
+            fs.Close()
+
+        Catch ex As Exception
+            Throw New Exception(ex.Message, ex)
+        End Try
 
     End Sub
 

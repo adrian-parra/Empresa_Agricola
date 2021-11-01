@@ -6,8 +6,10 @@ Public Class Inventario
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'VERIFICAR PRIVILEGIOS
-        If Privilegios.Privilegio = "usuario" Then
+        If Privilegios.Privilegio = "Empleado_Inventario" Then
             BTN_Add_Product.Visible = False
+        ElseIf Privilegios.Privilegio = "Inventario" Or Privilegios.Privilegio = "gerente" Then
+            BTN_Add_Product.Visible = True
         End If
 
 
@@ -132,6 +134,10 @@ Public Class Inventario
 
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles BTN_Guardar.Click
+
+
+
+
         Dim idNombre_Articulo As String = arr_nombre_articulo(CB_Nombre_Articulo.SelectedIndex)
         Dim idtipo_articulo As String = arr_tipo_articulo(CB_Tipo_Articulo.SelectedIndex)
         Dim idNombre_sucursal As String = arr_nombre_sucursal(CB_Sucursal.SelectedIndex)

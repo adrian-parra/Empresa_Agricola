@@ -12,13 +12,16 @@ Public Class Login
 
     Private Sub btn_iniciar_Click(sender As Object, e As EventArgs) Handles btn_iniciar.Click
 
+
+
         'Verificar text box 
         If txt_user.Text = "" Then
-            MsgBox("Ingrese nombre de usuario", vbOKOnly + vbExclamation, "Error de usuario")
-            txt_user.Focus()
+            M_Alert.CreateAlert("Ingrese nombre de usuario", "", "error", "tiny", False, 3)
+
+
         ElseIf txt_password.Text = "" Then
-            MsgBox("Ingrese contraseña", vbOKOnly + vbExclamation, "Error de usuario")
-            txt_password.Focus()
+            M_Alert.CreateAlert("Ingrese contraseña", "", "error", "tiny", False, 3)
+
         Else
             'buscar usaurio en la bd
             cn.ConnectionString = conexion
@@ -36,8 +39,11 @@ Public Class Login
                     If txt_user.Text = leerDatos.GetValue(1) And txt_password.Text = leerDatos.GetValue(2) Then
 
                         Privilegios.Privilegio = leerDatos.GetValue(3)
-                        Privilegios.Nombre = leerDatos.GetValue(1)
-                        Privilegios.usuario = leerDatos.GetValue(2)
+                        Privilegios.Nombre = leerDatos.GetValue(0)
+                        Privilegios.usuario = leerDatos.GetValue(1)
+
+
+                        M_Alert.CreateAlert("Inicio de sesion completo", "", "succes", "tiny", True, 2)
 
                         Subsistema.Show()
 
@@ -49,7 +55,10 @@ Public Class Login
                 End While
                 leerDatos.Close()
                 'imprimir que no existe el usuario
-                MsgBox("usuario no encontrado verifique")
+
+                M_Alert.CreateAlert("usuario no encontrado verifique", "", "error", "tiny", False, 3)
+
+
                 cn.Close()
 
             Catch ex As Exception
@@ -59,6 +68,52 @@ Public Class Login
     End Sub
 
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'Me.FormBorderStyle = FormBorderStyle.None
+        'Me.ForeColor = Color.DeepSkyBlue
+        'Me.Cursor = Cursors.IBeam
+        'Me.Left = 0
+
+
+
+        ' - Me.ClientSize.Width
+
+        Me.Top = 0
+        'Me.Width = 1280
+
+        'Me.Height = 720
+
+        Me.ShowIcon = False
+
+
+
+
+
+
+
+
+        'Dim pantalla As System.Windows.Forms.Screen = System.Windows.Forms.Screen.PrimaryScreen
+        'MsgBox(pantalla.Bounds.Width.ToString() + "x" + pantalla.Bounds.Height.ToString())
+
+        'Dim F As New Venta
+        'F.StartPosition = FormStartPosition.CenterScreen
+        'F.Size = New System.Drawing.Size(CInt(pantalla.Bounds.Width.ToString()), CInt(pantalla.Bounds.Height.ToString()))
+        'F.ShowDialog(Me)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     End Sub
 End Class

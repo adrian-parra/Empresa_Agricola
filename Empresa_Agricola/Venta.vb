@@ -1,4 +1,5 @@
-﻿Imports System.Data.SqlClient
+﻿
+Imports System.Data.SqlClient
 Imports iTextSharp
 Imports iTextSharp.text
 Imports iTextSharp.text.pdf
@@ -78,10 +79,10 @@ Public Class Venta
     Private Sub BTN_Registrar_Venta_Click(sender As Object, e As EventArgs) Handles BTN_Registrar_Venta.Click
         'VALIDAR TEXTBOX,COMBOBOX
         If CB_Cliente.Text = "" Then
-            MsgBox("CAMPOS FALTANTES")
+            CreateAlert("Seleccione el cliente", "", "error", "tiny", False, 3)
             Exit Sub
         ElseIf CB_Tipo_Pago.Text = "" Then
-            MsgBox("CAMPOS FALTANTES")
+            CreateAlert("Seleccione el tipo de pago", "", "error", "tiny", False, 3)
             Exit Sub
         End If
 
@@ -110,12 +111,19 @@ Public Class Venta
 
         'REGISTRAR EL PEDIDO DE ARTICULOS
         Dim leerDatos As SqlDataReader
+        Dim fecha, idecliente, idPedido, tipoPago As String
         Try
             'TRAER ID DE PEDIDO
             Dim query_folio_pedidos_cliente As New SqlCommand("select * from Pedidos_Clientes where Folio = '" + folio + "'", cn)
             leerDatos = query_folio_pedidos_cliente.ExecuteReader
             leerDatos.Read()
             Dim ID_Pedido_Cliente As String = leerDatos.GetValue(0)
+
+            'DATOS PARA PARAMETRO DE GENERAR REPORTE
+            fecha = leerDatos.GetValue(5).ToString
+            idPedido = leerDatos.GetValue(0).ToString
+            idecliente = leerDatos.GetValue(1).ToString
+            tipoPago = leerDatos.GetValue(2).ToString
 
             leerDatos.Close()
 
@@ -148,19 +156,32 @@ Public Class Venta
                 leerDatos.Read()
 
 
+
                 Dim query_ventas As New SqlCommand("insert into Ventas values ('" + leerDatos.GetValue(0).ToString + "')", cn)
                 leerDatos.Close()
                 query_ventas.ExecuteNonQuery()
-                MsgBox("add datos efectivo")
-                articulos.Rows.Clear()
+                CreateAlert("Venta en efectivo registrada", "Informacion de ventas", "succes", "small", True, 3)
+
+
+
                 limpiartext()
                 BTN_Registrar_Venta.Enabled = False
-            Catch ex As Exception
-                leerDatos.Close()
-                MsgBox(ex.Message)
-            Finally
+
                 cn.Close()
 
+                'CREAR FACTURA y abrir
+                M_Generar_Pdf.Reporte_Venta("select * from pedido_articulo where ID_Articulo = '" + idPedido + "'", folio, fecha, SumArticulos(), TraerNombreCliente(idecliente), tipoPago)
+                'GUARDAR FACTURA EN BD
+                GuardarPdfBd(folio, CInt(idecliente))
+
+                'TRAER PDF
+                TraerPdfBd()
+
+                articulos.Rows.Clear()
+            Catch ex As Exception
+                cn.Close()
+                leerDatos.Close()
+                MsgBox(ex.Message)
 
             End Try
 
@@ -180,7 +201,8 @@ Public Class Venta
                 Dim query_ventas As New SqlCommand("insert into Cuentas_Por_Cobrar values ('" + leerDatos.GetValue(0).ToString + "','" + SumArticulos() + "','A')", cn)
                 leerDatos.Close()
                 query_ventas.ExecuteNonQuery()
-                MsgBox("add datos CREDITO")
+
+                CreateAlert("VENTA a credito registrada", "", "succes", "small", True, 3)
                 articulos.Rows.Clear()
                 BTN_Registrar_Venta.Enabled = False
                 limpiartext()
@@ -216,6 +238,22 @@ Public Class Venta
         Return suma.ToString
     End Function
     Private Sub Venta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'VERIFICAR PRIVILEGIOS
+        If Privilegios.Privilegio = "Empleado_Ventas" Then
+            BTN_Add_Cliente.Visible = False
+        ElseIf Privilegios.Privilegio = "Ventas" Or Privilegios.Privilegio = "gerente" Then
+            BTN_Add_Cliente.Visible = True
+        End If
+
+
+
+
+
+
+
+
+
+
 
         BTN_Registrar_Venta.Enabled = False
         cn.ConnectionString = conexion
@@ -272,7 +310,7 @@ Public Class Venta
 
         Try
             cn.Open()
-            Dim query_Articulos As New SqlCommand("select * from Nombre_Articulos where ID_Tipo_Articulo = 1 or ID_Tipo_Articulo = 4", cn)
+            Dim query_Articulos As New SqlCommand("select * from Nombre_Articulos where ID_Tipo_Articulo = 1 or ID_Tipo_Articulo = 5", cn)
             leerDatos = query_Articulos.ExecuteReader
             While leerDatos.Read
 
@@ -281,6 +319,7 @@ Public Class Venta
 
             End While
 
+            CB_Articulo.SelectedIndex = 0
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
@@ -296,9 +335,10 @@ Public Class Venta
 
     Private Sub BTN_Agrergar_Articulo_Click(sender As Object, e As EventArgs) Handles BTN_Agrergar_Articulo.Click
         If TXT_Cantidad.Text = "" Then
-            MsgBox("ingrese la cantidad de articulo")
+            CreateAlert("ingrese la cantidad de articulo", "", "error", "tiny", False, 3)
         ElseIf TXT_Precio.Text = "" Then
-            MsgBox("ingrese el precio de articulo")
+            CreateAlert("ingrese el precio de articulo", "", "error", "tiny", False, 3)
+
         Else
 
             row = articulos.NewRow()
@@ -324,7 +364,7 @@ Public Class Venta
 
     Private Sub BTN_Add_Cliente_Click(sender As Object, e As EventArgs) Handles BTN_Add_Cliente.Click
         VentaNewCliente.Show()
-
+        Me.Hide()
     End Sub
 
 
@@ -381,309 +421,14 @@ Public Class Venta
         End If
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) 
 
-        M_Generar_Pdf.Reporte_Venta("select * from Pedido_Articulo")
-        Exit Sub
-        Dim pdfDoc As New Document(iTextSharp.text.PageSize.A4, 15.0F, 15.0F, 30.0F, 30.0F)
-        Dim pdfwriter As PdfWriter = PdfWriter.GetInstance(pdfDoc, New FileStream("demo.pdf", FileMode.Create))
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs)
 
+    End Sub
 
-        Dim Fon8 As New Font(FontFactory.GetFont(FontFactory.HELVETICA, 8, iTextSharp.text.Font.NORMAL))
-        Dim FonB8 As New Font(FontFactory.GetFont(FontFactory.HELVETICA, 8, iTextSharp.text.Font.BOLD, BaseColor.WHITE))
-        Dim FonB10 As New Font(FontFactory.GetFont(FontFactory.HELVETICA, 10, iTextSharp.text.Font.BOLD))
-        Dim CVacio As PdfPCell = New PdfPCell(New Phrase(""))
-        CVacio.Border = 0
 
 
-        pdfDoc.Open()
-
-        Dim table1 As PdfPTable = New PdfPTable(4)
-        Dim col1 As PdfPCell
-        Dim col2 As PdfPCell
-        Dim col3 As PdfPCell
-        Dim col4 As PdfPCell
-        Dim col5 As PdfPCell
-        Dim col6 As PdfPCell
-        Dim ILine As Integer
-        Dim IFila As Integer
-
-        table1.WidthPercentage = 95
-
-        Dim widths As Single() = New Single() {4.0F, 7.0F, 1.0F, 4.0F}
-        table1.SetWidths(widths)
-
-        'pintar en pantalla
-        Dim imagenURL As String = Environment.CurrentDirectory + "/img-pdf.png"
-        Dim imagenBMP As iTextSharp.text.Image
-        imagenBMP = iTextSharp.text.Image.GetInstance(imagenURL)
-        imagenBMP.ScaleToFit(100.0F, 130.0F)
-        imagenBMP.SpacingBefore = 20.0F
-        imagenBMP.SpacingAfter = 10.0F
-        imagenBMP.SetAbsolutePosition(40, 730)
-        pdfDoc.Add(imagenBMP)
-
-
-        table1.AddCell(CVacio)
-        col2 = New PdfPCell(New Phrase("NOMBRE DE LA EMPRESA EMISORA", FonB10))
-        col2.Border = 0
-        table1.AddCell(col2)
-        table1.AddCell(CVacio)
-
-        col3 = New PdfPCell(New Phrase("FOLIO", FonB10))
-        col3.HorizontalAlignment = Element.ALIGN_CENTER
-        col3.Border = 0
-        table1.AddCell(col3)
-
-        table1.AddCell(CVacio)
-        col2 = New PdfPCell(New Phrase("av material xxx industrial", Fon8))
-        col2.Border = 0
-        table1.AddCell(col2)
-        table1.AddCell(CVacio)
-        col3 = New PdfPCell(New Phrase("12345678", Fon8))
-        col3.HorizontalAlignment = Element.ALIGN_CENTER
-        col3.Border = 0
-        table1.AddCell(col3)
-
-        table1.AddCell(CVacio)
-        col2 = New PdfPCell(New Phrase("lima -lima -lima", Fon8))
-        col2.Border = 0
-        table1.AddCell(col2)
-        table1.AddCell(CVacio)
-
-        col3 = New PdfPCell(New Phrase("FECHA", FonB10))
-        col3.HorizontalAlignment = Element.ALIGN_CENTER
-        col3.Border = 0
-        table1.AddCell(col3)
-
-        table1.AddCell(CVacio)
-        col2 = New PdfPCell(New Phrase("66823234232", Fon8))
-        col2.Border = 0
-        table1.AddCell(col2)
-        table1.AddCell(CVacio)
-        col3 = New PdfPCell(New Phrase("23/07/2012", Fon8))
-        col3.HorizontalAlignment = Element.ALIGN_CENTER
-        col3.Border = 0
-        table1.AddCell(col3)
-
-        table1.AddCell(CVacio)
-        col2 = New PdfPCell(New Phrase("www.xxxxxxxx.com.pe", Fon8))
-        col2.Border = 0
-        table1.AddCell(col2)
-        table1.AddCell(CVacio)
-        col3 = New PdfPCell(New Phrase("f0001-00004", Fon8))
-        col3.HorizontalAlignment = Element.ALIGN_CENTER
-        col3.Border = 0
-        table1.AddCell(col3)
-        pdfDoc.Add(table1)
-
-
-
-
-        'pintar espacio
-        Dim table2 As PdfPTable = New PdfPTable(4)
-        table2.WidthPercentage = 95
-
-        widths = New Single() {7.0F, 7.0F, 7.0F, 7.0F}
-        table2.SetWidths(widths)
-
-
-        col1 = New PdfPCell(New Phrase(" " + vbNewLine + " ", FonB8))
-        col1.Border = 0
-        'col1.BorderColorLeft = BaseColor.BLUE
-        col1.BorderColor = BaseColor.BLUE
-
-        table2.AddCell(col1)
-
-        col2 = New PdfPCell(New Phrase("", FonB8))
-        col2.Border = 0
-        'col2.BorderColor = BaseColor.CYAN
-        'col2.BackgroundColor = BaseColor.GREEN
-        table2.AddCell(col2)
-
-        col3 = New PdfPCell(New Phrase("", FonB8))
-        col3.Border = 0
-        table2.AddCell(col3)
-
-        col4 = New PdfPCell(New Phrase("", FonB8))
-        col4.Border = 0
-        table2.AddCell(col4)
-        pdfDoc.Add(table2)
-
-
-        'PINTAR HEADER DE TABLA
-        Dim table3 As PdfPTable = New PdfPTable(4)
-        table3.WidthPercentage = 95
-
-        widths = New Single() {7.0F, 7.0F, 7.0F, 7.0F}
-        table3.SetWidths(widths)
-
-
-
-
-        col1 = New PdfPCell(New Phrase("ID", FonB8))
-
-        col1.HorizontalAlignment = Element.ALIGN_CENTER
-        col1.BackgroundColor = BaseColor.BLUE
-        col1.BorderColor = BaseColor.BLUE
-        col1.Padding = 5.0F
-
-
-
-        'col1.BorderWidth = 2.0F
-        table3.AddCell(col1)
-
-        col2 = New PdfPCell(New Phrase("Articulo", FonB8))
-        col2.BackgroundColor = BaseColor.BLUE
-        col2.BorderColor = BaseColor.BLUE
-        col2.Padding = 5.0F
-
-        col2.HorizontalAlignment = Element.ALIGN_CENTER
-        'col2.BorderColor = BaseColor.CYAN
-        'col2.BackgroundColor = BaseColor.GREEN
-        table3.AddCell(col2)
-
-        col3 = New PdfPCell(New Phrase("Cantidad", FonB8))
-        col3.BackgroundColor = BaseColor.BLUE
-        col3.BorderColor = BaseColor.BLUE
-        col3.Padding = 5.0F
-
-        col3.HorizontalAlignment = Element.ALIGN_CENTER
-        table3.AddCell(col3)
-
-        col4 = New PdfPCell(New Phrase("Precio", FonB8))
-        col4.BackgroundColor = BaseColor.BLUE
-        col4.BorderColor = BaseColor.BLUE
-        col4.Padding = 5.0F
-
-        col4.HorizontalAlignment = Element.ALIGN_CENTER
-
-        table3.AddCell(col4)
-
-
-
-        pdfDoc.Add(table3)
-
-        'TRAER DATOS DE BD
-        Dim query_cpc As New SqlDataAdapter("select * from Pedido_articulo where ID_Articulo = 6", cn)
-        Dim tbl As New DataTable
-        query_cpc.Fill(tbl)
-
-
-
-        Dim table4 As PdfPTable = New PdfPTable(4)
-        table4.WidthPercentage = 95
-
-        widths = New Single() {7.0F, 7.0F, 7.0F, 7.0F}
-        table4.SetWidths(widths)
-
-        Dim colorFondo As Integer = 0
-        Dim colorFondoC As Boolean = False
-        For i = 0 To tbl.Rows.Count - 1
-            colorFondo = i + 1
-            If (colorFondo Mod 2) > 0 Then
-                colorFondoC = False
-            Else
-                colorFondoC = True
-            End If
-            'CELDA 1 ID
-            col1 = New PdfPCell(New Phrase(tbl.Rows(i)(0), Fon8))
-            col1.HorizontalAlignment = Element.ALIGN_CENTER
-            col1.Border = 6
-            col1.Border += 8
-            If colorFondoC Then
-                col1.BackgroundColor = BaseColor.CYAN
-            End If
-            col1.Padding = 2.0F
-
-            table4.AddCell(col1)
-
-            'CELDA 2 ARTICULO
-            col2 = New PdfPCell(New Phrase(tbl.Rows(i)(1), Fon8))
-            col2.HorizontalAlignment = Element.ALIGN_CENTER
-            col2.Border = 6
-            col2.Border += 8
-            If colorFondoC Then
-                col2.BackgroundColor = BaseColor.CYAN
-            End If
-            col2.Padding = 2.0F
-            table4.AddCell(col2)
-
-            'CELDA 3 CANTIDAD
-            col3 = New PdfPCell(New Phrase(tbl.Rows(i)(2), Fon8))
-            col3.HorizontalAlignment = Element.ALIGN_CENTER
-            col3.Border = 6
-            col3.Border += 8
-            If colorFondoC Then
-                col3.BackgroundColor = BaseColor.CYAN
-            End If
-            col3.Padding = 2.0F
-            table4.AddCell(col3)
-
-            'CELADA 4 PRECIO
-            col4 = New PdfPCell(New Phrase(tbl.Rows(i)(3), Fon8))
-            col4.HorizontalAlignment = Element.ALIGN_CENTER
-            col4.Border = 6
-            col4.Border += 8
-            If colorFondoC Then
-                col4.BackgroundColor = BaseColor.CYAN
-            End If
-            col4.Padding = 2.0F
-            table4.AddCell(col4)
-
-        Next
-        pdfDoc.Add(table4)
-
-        'Ejemplo tabla
-        Dim table5 As PdfPTable = New PdfPTable(4)
-        table5.WidthPercentage = 95
-
-        widths = New Single() {7.0F, 7.0F, 7.0F, 7.0F}
-        table5.SetWidths(widths)
-
-
-        'CELDA 1 
-        col1 = New PdfPCell(New Phrase("ejemplo", Fon8))
-        col1.HorizontalAlignment = Element.ALIGN_CENTER
-
-        col1.Padding = 2.0F
-
-        table5.AddCell(col1)
-
-        'CELDA 2
-        col2 = New PdfPCell(New Phrase("lopez", Fon8))
-        col2.HorizontalAlignment = Element.ALIGN_CENTER
-
-
-        col2.Padding = 2.0F
-
-        table5.AddCell(col2)
-
-        'CELDA 3
-        col1 = New PdfPCell(New Phrase("ejemplo", Fon8))
-        col1.HorizontalAlignment = Element.ALIGN_CENTER
-
-        col1.Padding = 2.0F
-
-        table5.AddCell(col1)
-
-        'CELDA 4
-        col1 = New PdfPCell(New Phrase("lopez", Fon8))
-        col1.HorizontalAlignment = Element.ALIGN_CENTER
-
-
-        col1.Padding = 2.0F
-
-        table5.AddCell(col1)
-
-        pdfDoc.Add(table5)
-
-        pdfDoc.Close()
-
-        Shell("cmd.exe /k" + "start demo.pdf")
-
-
-
-
+    Private Sub Venta_Closed(sender As Object, e As EventArgs) Handles Me.Closed
+        Subsistema.Show()
     End Sub
 End Class

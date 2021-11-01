@@ -29,12 +29,13 @@ Partial Class Subsistema
         Me.BTN_Recursos_Humanos = New System.Windows.Forms.Button()
         Me.MS_Perfil = New System.Windows.Forms.MenuStrip()
         Me.PerfilToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CerrarSesionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.InformacionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SubsistemasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BTN_Finanzas = New System.Windows.Forms.Button()
         Me.BTN_Ventas = New System.Windows.Forms.Button()
         Me.BTN_Compras = New System.Windows.Forms.Button()
         Me.BTN_Inventario = New System.Windows.Forms.Button()
-        Me.CerrarSesionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.InformacionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PB_Perfil = New System.Windows.Forms.PictureBox()
         Me.LBL_Nombre = New System.Windows.Forms.Label()
         Me.LBL_Usuario = New System.Windows.Forms.Label()
@@ -42,7 +43,6 @@ Partial Class Subsistema
         Me.LBL_Nombre_text = New System.Windows.Forms.Label()
         Me.LBL_Usuario_text = New System.Windows.Forms.Label()
         Me.LBL_Puesto_text = New System.Windows.Forms.Label()
-        Me.SubsistemasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MS_Perfil.SuspendLayout()
         CType(Me.PB_Perfil, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -110,7 +110,6 @@ Partial Class Subsistema
         '
         Me.MS_Perfil.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.MS_Perfil.Font = New System.Drawing.Font("Segoe UI", 11.0!)
-        Me.MS_Perfil.GripMargin = New System.Windows.Forms.Padding(2, 2, 0, 2)
         Me.MS_Perfil.ImageScalingSize = New System.Drawing.Size(24, 24)
         Me.MS_Perfil.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PerfilToolStripMenuItem})
         Me.MS_Perfil.Location = New System.Drawing.Point(0, 0)
@@ -125,6 +124,27 @@ Partial Class Subsistema
         Me.PerfilToolStripMenuItem.Name = "PerfilToolStripMenuItem"
         Me.PerfilToolStripMenuItem.Size = New System.Drawing.Size(77, 34)
         Me.PerfilToolStripMenuItem.Text = "Perfil"
+        '
+        'CerrarSesionToolStripMenuItem
+        '
+        Me.CerrarSesionToolStripMenuItem.Image = Global.Empresa_Agricola.My.Resources.Resources.img_subsistemas_cerrar_sesion
+        Me.CerrarSesionToolStripMenuItem.Name = "CerrarSesionToolStripMenuItem"
+        Me.CerrarSesionToolStripMenuItem.Size = New System.Drawing.Size(243, 38)
+        Me.CerrarSesionToolStripMenuItem.Text = "Cerrar sesion"
+        '
+        'InformacionToolStripMenuItem
+        '
+        Me.InformacionToolStripMenuItem.Image = Global.Empresa_Agricola.My.Resources.Resources.img_subsistemas_perfil_info
+        Me.InformacionToolStripMenuItem.Name = "InformacionToolStripMenuItem"
+        Me.InformacionToolStripMenuItem.Size = New System.Drawing.Size(243, 38)
+        Me.InformacionToolStripMenuItem.Text = "Informacion"
+        '
+        'SubsistemasToolStripMenuItem
+        '
+        Me.SubsistemasToolStripMenuItem.Image = Global.Empresa_Agricola.My.Resources.Resources.img_subsistemas_subsistemas
+        Me.SubsistemasToolStripMenuItem.Name = "SubsistemasToolStripMenuItem"
+        Me.SubsistemasToolStripMenuItem.Size = New System.Drawing.Size(243, 38)
+        Me.SubsistemasToolStripMenuItem.Text = "Subsistemas"
         '
         'BTN_Finanzas
         '
@@ -198,20 +218,6 @@ Partial Class Subsistema
         Me.BTN_Inventario.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.BTN_Inventario.UseVisualStyleBackColor = True
         '
-        'CerrarSesionToolStripMenuItem
-        '
-        Me.CerrarSesionToolStripMenuItem.Image = Global.Empresa_Agricola.My.Resources.Resources.img_subsistemas_cerrar_sesion
-        Me.CerrarSesionToolStripMenuItem.Name = "CerrarSesionToolStripMenuItem"
-        Me.CerrarSesionToolStripMenuItem.Size = New System.Drawing.Size(270, 38)
-        Me.CerrarSesionToolStripMenuItem.Text = "Cerrar sesion"
-        '
-        'InformacionToolStripMenuItem
-        '
-        Me.InformacionToolStripMenuItem.Image = Global.Empresa_Agricola.My.Resources.Resources.img_subsistemas_perfil_info
-        Me.InformacionToolStripMenuItem.Name = "InformacionToolStripMenuItem"
-        Me.InformacionToolStripMenuItem.Size = New System.Drawing.Size(270, 38)
-        Me.InformacionToolStripMenuItem.Text = "Informacion"
-        '
         'PB_Perfil
         '
         Me.PB_Perfil.Image = Global.Empresa_Agricola.My.Resources.Resources.img_login
@@ -279,13 +285,6 @@ Partial Class Subsistema
         Me.LBL_Puesto_text.TabIndex = 15
         Me.LBL_Puesto_text.Text = "Label1"
         '
-        'SubsistemasToolStripMenuItem
-        '
-        Me.SubsistemasToolStripMenuItem.Image = Global.Empresa_Agricola.My.Resources.Resources.img_subsistemas_subsistemas
-        Me.SubsistemasToolStripMenuItem.Name = "SubsistemasToolStripMenuItem"
-        Me.SubsistemasToolStripMenuItem.Size = New System.Drawing.Size(270, 38)
-        Me.SubsistemasToolStripMenuItem.Text = "Subsistemas"
-        '
         'Subsistema
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -312,6 +311,7 @@ Partial Class Subsistema
         Me.MainMenuStrip = Me.MS_Perfil
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "Subsistema"
+        Me.Text = "INICIO"
         Me.MS_Perfil.ResumeLayout(False)
         Me.MS_Perfil.PerformLayout()
         CType(Me.PB_Perfil, System.ComponentModel.ISupportInitialize).EndInit()

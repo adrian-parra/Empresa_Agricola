@@ -62,7 +62,7 @@
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles BTN_Ventas.Click
         Venta.Show()
-
+        Me.Hide()
     End Sub
 
     Private Sub CerrarSesionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CerrarSesionToolStripMenuItem.Click
