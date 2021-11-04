@@ -94,6 +94,12 @@
     <Compile Include="Direccion.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Mantenimiento.Designer.vb">
+      <DependentUpon>Mantenimiento.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimiento.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -118,6 +124,24 @@
     <Compile Include="M_Inventario.vb" />
     <Compile Include="M_Venta.vb" />
     <Compile Include="Privilegios.vb" />
+    <Compile Include="Produccion.Designer.vb">
+      <DependentUpon>Produccion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Produccion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProduccionCampo.Designer.vb">
+      <DependentUpon>ProduccionCampo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ProduccionCampo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProduccionEmpaque.Designer.vb">
+      <DependentUpon>ProduccionEmpaque.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ProduccionEmpaque.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Recursos_Humanos.Designer.vb">
       <DependentUpon>Recursos_Humanos.vb</DependentUpon>
     </Compile>
@@ -193,6 +217,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InventarioAddArticulo.resx">
       <DependentUpon>InventarioAddArticulo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimiento.resx">
+      <DependentUpon>Mantenimiento.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Produccion.resx">
+      <DependentUpon>Produccion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProduccionCampo.resx">
+      <DependentUpon>ProduccionCampo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProduccionEmpaque.resx">
+      <DependentUpon>ProduccionEmpaque.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Recursos_Humanos.resx">
       <DependentUpon>Recursos_Humanos.vb</DependentUpon>

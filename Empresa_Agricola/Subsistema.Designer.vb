@@ -101,7 +101,7 @@ Partial Class Subsistema
         Me.MS_Perfil.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PerfilToolStripMenuItem})
         Me.MS_Perfil.Location = New System.Drawing.Point(0, 0)
         Me.MS_Perfil.Name = "MS_Perfil"
-        Me.MS_Perfil.Size = New System.Drawing.Size(900, 38)
+        Me.MS_Perfil.Size = New System.Drawing.Size(900, 40)
         Me.MS_Perfil.TabIndex = 8
         Me.MS_Perfil.Text = "Opciones"
         '
@@ -275,21 +275,21 @@ Partial Class Subsistema
         '
         Me.CerrarSesionToolStripMenuItem.Image = Global.Empresa_Agricola.My.Resources.Resources.img_subsistemas_cerrar_sesion
         Me.CerrarSesionToolStripMenuItem.Name = "CerrarSesionToolStripMenuItem"
-        Me.CerrarSesionToolStripMenuItem.Size = New System.Drawing.Size(270, 38)
+        Me.CerrarSesionToolStripMenuItem.Size = New System.Drawing.Size(243, 38)
         Me.CerrarSesionToolStripMenuItem.Text = "Cerrar sesion"
         '
         'InformacionToolStripMenuItem
         '
         Me.InformacionToolStripMenuItem.Image = Global.Empresa_Agricola.My.Resources.Resources.img_subsistemas_perfil_info
         Me.InformacionToolStripMenuItem.Name = "InformacionToolStripMenuItem"
-        Me.InformacionToolStripMenuItem.Size = New System.Drawing.Size(270, 38)
+        Me.InformacionToolStripMenuItem.Size = New System.Drawing.Size(243, 38)
         Me.InformacionToolStripMenuItem.Text = "Informacion"
         '
         'SubsistemasToolStripMenuItem
         '
         Me.SubsistemasToolStripMenuItem.Image = Global.Empresa_Agricola.My.Resources.Resources.img_subsistemas_subsistemas
         Me.SubsistemasToolStripMenuItem.Name = "SubsistemasToolStripMenuItem"
-        Me.SubsistemasToolStripMenuItem.Size = New System.Drawing.Size(270, 38)
+        Me.SubsistemasToolStripMenuItem.Size = New System.Drawing.Size(243, 38)
         Me.SubsistemasToolStripMenuItem.Text = "Subsistemas"
         '
         'Subsistema

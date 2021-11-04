@@ -120,4 +120,18 @@
         Me.Hide()
 
     End Sub
+
+    Private Sub BTN_Produccion_Click(sender As Object, e As EventArgs) Handles BTN_Produccion.Click
+        Me.Hide()
+        Produccion.Show()
+    End Sub
+
+    Private Sub BTN_Distribuccion_Click(sender As Object, e As EventArgs) Handles BTN_Distribuccion.Click
+
+    End Sub
+
+    Private Sub BTN_Mantenimiento_Click(sender As Object, e As EventArgs) Handles BTN_Mantenimiento.Click
+        Me.Hide()
+        Mantenimiento.Show()
+    End Sub
 End Class
