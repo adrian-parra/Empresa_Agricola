@@ -22,6 +22,7 @@ Partial Class Direccion
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Direccion))
         Me.Label11 = New System.Windows.Forms.Label()
         Me.CB_Ciudad = New System.Windows.Forms.ComboBox()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -42,132 +43,152 @@ Partial Class Direccion
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(518, 315)
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(456, 249)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(59, 20)
+        Me.Label11.Size = New System.Drawing.Size(75, 25)
         Me.Label11.TabIndex = 35
         Me.Label11.Text = "Ciudad"
         '
         'CB_Ciudad
         '
+        Me.CB_Ciudad.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CB_Ciudad.FormattingEnabled = True
-        Me.CB_Ciudad.Location = New System.Drawing.Point(512, 352)
+        Me.CB_Ciudad.Location = New System.Drawing.Point(451, 277)
         Me.CB_Ciudad.Name = "CB_Ciudad"
-        Me.CB_Ciudad.Size = New System.Drawing.Size(162, 28)
+        Me.CB_Ciudad.Size = New System.Drawing.Size(238, 37)
         Me.CB_Ciudad.TabIndex = 34
         '
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(518, 222)
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(456, 154)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(75, 20)
+        Me.Label10.Size = New System.Drawing.Size(95, 25)
         Me.Label10.TabIndex = 33
         Me.Label10.Text = "Municipio"
         '
         'CB_Municipios
         '
+        Me.CB_Municipios.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CB_Municipios.FormattingEnabled = True
-        Me.CB_Municipios.Location = New System.Drawing.Point(512, 259)
+        Me.CB_Municipios.Location = New System.Drawing.Point(451, 182)
         Me.CB_Municipios.Name = "CB_Municipios"
-        Me.CB_Municipios.Size = New System.Drawing.Size(162, 28)
+        Me.CB_Municipios.Size = New System.Drawing.Size(238, 37)
         Me.CB_Municipios.TabIndex = 32
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(518, 121)
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(456, 67)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(60, 20)
+        Me.Label9.Size = New System.Drawing.Size(73, 25)
         Me.Label9.TabIndex = 31
         Me.Label9.Text = "Estado"
         '
         'CB_Estados
         '
+        Me.CB_Estados.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CB_Estados.FormattingEnabled = True
-        Me.CB_Estados.Location = New System.Drawing.Point(512, 158)
+        Me.CB_Estados.Location = New System.Drawing.Point(451, 95)
         Me.CB_Estados.Name = "CB_Estados"
-        Me.CB_Estados.Size = New System.Drawing.Size(162, 28)
+        Me.CB_Estados.Size = New System.Drawing.Size(238, 37)
         Me.CB_Estados.TabIndex = 30
         '
         'TXT_Codigo_Postal
         '
-        Me.TXT_Codigo_Postal.Location = New System.Drawing.Point(202, 424)
+        Me.TXT_Codigo_Postal.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TXT_Codigo_Postal.Location = New System.Drawing.Point(93, 377)
         Me.TXT_Codigo_Postal.Name = "TXT_Codigo_Postal"
-        Me.TXT_Codigo_Postal.Size = New System.Drawing.Size(184, 26)
+        Me.TXT_Codigo_Postal.Size = New System.Drawing.Size(260, 35)
         Me.TXT_Codigo_Postal.TabIndex = 29
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(210, 386)
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(101, 349)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(106, 20)
+        Me.Label5.Size = New System.Drawing.Size(132, 25)
         Me.Label5.TabIndex = 28
         Me.Label5.Text = "Codigo postal"
         '
         'TXT_Colonia
         '
-        Me.TXT_Colonia.Location = New System.Drawing.Point(202, 324)
+        Me.TXT_Colonia.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TXT_Colonia.Location = New System.Drawing.Point(93, 277)
         Me.TXT_Colonia.Name = "TXT_Colonia"
-        Me.TXT_Colonia.Size = New System.Drawing.Size(184, 26)
+        Me.TXT_Colonia.Size = New System.Drawing.Size(260, 35)
         Me.TXT_Colonia.TabIndex = 27
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(210, 286)
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(101, 249)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(62, 20)
+        Me.Label6.Size = New System.Drawing.Size(79, 25)
         Me.Label6.TabIndex = 26
         Me.Label6.Text = "Colonia"
         '
         'TXT_Calle
         '
-        Me.TXT_Calle.Location = New System.Drawing.Point(202, 231)
+        Me.TXT_Calle.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TXT_Calle.Location = New System.Drawing.Point(93, 184)
         Me.TXT_Calle.Name = "TXT_Calle"
-        Me.TXT_Calle.Size = New System.Drawing.Size(184, 26)
+        Me.TXT_Calle.Size = New System.Drawing.Size(260, 35)
         Me.TXT_Calle.TabIndex = 25
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(210, 193)
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(101, 156)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(41, 20)
+        Me.Label7.Size = New System.Drawing.Size(52, 25)
         Me.Label7.TabIndex = 24
         Me.Label7.Text = "calle"
         '
         'TXT_Num_Exterior
         '
-        Me.TXT_Num_Exterior.Location = New System.Drawing.Point(202, 144)
+        Me.TXT_Num_Exterior.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TXT_Num_Exterior.Location = New System.Drawing.Point(93, 97)
         Me.TXT_Num_Exterior.Name = "TXT_Num_Exterior"
-        Me.TXT_Num_Exterior.Size = New System.Drawing.Size(184, 26)
+        Me.TXT_Num_Exterior.Size = New System.Drawing.Size(260, 35)
         Me.TXT_Num_Exterior.TabIndex = 23
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(210, 106)
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(101, 69)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(121, 20)
+        Me.Label8.Size = New System.Drawing.Size(150, 25)
         Me.Label8.TabIndex = 22
         Me.Label8.Text = "Numero exterior"
         '
         'BTN_Registrar_Direccion
         '
-        Me.BTN_Registrar_Direccion.Location = New System.Drawing.Point(394, 514)
+        Me.BTN_Registrar_Direccion.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BTN_Registrar_Direccion.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BTN_Registrar_Direccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BTN_Registrar_Direccion.Image = Global.Empresa_Agricola.My.Resources.Resources.img_guardar
+        Me.BTN_Registrar_Direccion.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BTN_Registrar_Direccion.Location = New System.Drawing.Point(451, 341)
         Me.BTN_Registrar_Direccion.Name = "BTN_Registrar_Direccion"
-        Me.BTN_Registrar_Direccion.Size = New System.Drawing.Size(223, 43)
+        Me.BTN_Registrar_Direccion.Size = New System.Drawing.Size(238, 71)
         Me.BTN_Registrar_Direccion.TabIndex = 36
-        Me.BTN_Registrar_Direccion.Text = "Registrar direccion"
+        Me.BTN_Registrar_Direccion.Text = "Registrar"
         Me.BTN_Registrar_Direccion.UseVisualStyleBackColor = True
         '
         'Direccion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(877, 583)
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(753, 457)
         Me.Controls.Add(Me.BTN_Registrar_Direccion)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.CB_Ciudad)
@@ -183,6 +204,7 @@ Partial Class Direccion
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.TXT_Num_Exterior)
         Me.Controls.Add(Me.Label8)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Direccion"
         Me.Text = "Direccion"
         Me.ResumeLayout(False)

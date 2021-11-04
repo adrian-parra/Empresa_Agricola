@@ -10,17 +10,19 @@ Module M_Generar_Pdf
     Private col As PdfPCell
     Private widths As Single()
     Private pdfDoc As New Document(iTextSharp.text.PageSize.A4, 15.0F, 15.0F, 30.0F, 30.0F)
+    'FUeNTE DE LETRA
+    Dim Fon8 As New Font(FontFactory.GetFont(FontFactory.HELVETICA, 8, iTextSharp.text.Font.NORMAL))
+    Dim FonB8 As New Font(FontFactory.GetFont(FontFactory.HELVETICA, 8, iTextSharp.text.Font.BOLD, BaseColor.BLACK))
+    Dim FonB10 As New Font(FontFactory.GetFont(FontFactory.HELVETICA, 10, iTextSharp.text.Font.BOLD))
+    'CREANDO PDF Y ASIGNANDOLE NOMBRE
+    Dim pdfwriter As PdfWriter
+    'table temporal
+    Dim tbl As New DataTable
 
 
-
-    Public Function Reporte_Venta(query_tabla As String, folio As String, fecha As String, total As String, cliente As String, MetodoPago As String)
+    Private Sub HeaderDocument(folio As String, fecha As String)
         'CREANDO PDF Y ASIGNANDOLE NOMBRE
-        Dim pdfwriter As PdfWriter = PdfWriter.GetInstance(pdfDoc, New FileStream("Documento.pdf", FileMode.Create))
-
-        'FUNETE DE LETRA
-        Dim Fon8 As New Font(FontFactory.GetFont(FontFactory.HELVETICA, 8, iTextSharp.text.Font.NORMAL))
-        Dim FonB8 As New Font(FontFactory.GetFont(FontFactory.HELVETICA, 8, iTextSharp.text.Font.BOLD, BaseColor.BLACK))
-        Dim FonB10 As New Font(FontFactory.GetFont(FontFactory.HELVETICA, 10, iTextSharp.text.Font.BOLD))
+        pdfwriter = PdfWriter.GetInstance(pdfDoc, New FileStream("Documento.pdf", FileMode.Create))
 
 
         CVacio.Border = 0 'SIN BORDES
@@ -148,14 +150,14 @@ Module M_Generar_Pdf
 
         'PINTA LA table EN PDF
         pdfDoc.Add(table)
+    End Sub
 
-        'SPACIO ENTRE ELEMENTOS
-        Spacing()
+    Private Sub TablaDocumento(query_tabla As String)
 
         'TABLA DE LA BD ARTICULOS
         'TRAER DATOS DE BD
         Dim query_cpc As New SqlDataAdapter(query_tabla, cn)
-        Dim tbl As New DataTable
+
         query_cpc.Fill(tbl)
 
         'PINTAR HEADER DE TABLA
@@ -208,6 +210,18 @@ Module M_Generar_Pdf
 
         'AGREGO LA TABLA ARTICULOS
         pdfDoc.Add(table)
+    End Sub
+
+    Public Function Reporte_Venta(query_tabla As String, folio As String, fecha As String, total As String, cliente As String, MetodoPago As String)
+
+        'HEADER
+        HeaderDocument(folio, fecha)
+
+        'SPACIO ENTRE ELEMENTOS
+        Spacing()
+
+        'tabla 
+        TablaDocumento(query_tabla)
 
 
         'CREAR TOTAL DE FACTURA
@@ -292,17 +306,6 @@ Module M_Generar_Pdf
 
         Next
 
-
-
-
-
-
-
-
-
-
-
-
         pdfDoc.Add(table)
 
 
@@ -313,6 +316,24 @@ Module M_Generar_Pdf
         Shell("cmd.exe /k" + "start Documento.pdf && exit", vbHide)
         Return 0
     End Function
+
+    Public Sub HistorialAbonosDocument(query_tabla As String, folio As String, fecha As String)
+        'HEADER
+        HeaderDocument(folio, fecha)
+
+        'SPACIO ENTRE ELEMENTOS
+        Spacing()
+
+        'tabla 
+        TablaDocumento(query_tabla)
+
+        'CIERRO LA ESCRITURA EN PDF
+        pdfDoc.Close()
+
+        'LO ABRO EN NAVEGADOR
+        Shell("cmd.exe /k" + "start Documento.pdf && exit", vbHide)
+    End Sub
+
 
     Private Sub Spacing()
         'pintar espacio
@@ -330,6 +351,8 @@ Module M_Generar_Pdf
         table.AddCell(col)
 
         pdfDoc.Add(table)
+
+
 
     End Sub
 
@@ -364,11 +387,11 @@ Module M_Generar_Pdf
 
     End Sub
 
-    Public Sub TraerPdfBd()
+    Public Sub TraerPdfBd(folio As String)
         Try
             cn.Open()
             Dim directorioarchivo As String = System.AppDomain.CurrentDomain.BaseDirectory() + "DocumentoTemp.pdf"
-            Dim query_traer_pdf_bd As New SqlCommand("select * from Documentos where ID_Documento = 1", cn)
+            Dim query_traer_pdf_bd As New SqlCommand("select * from Documentos where Folio = '" + folio + "'", cn)
             Dim leerdato As SqlDataReader = query_traer_pdf_bd.ExecuteReader
 
             If leerdato.HasRows Then
@@ -381,7 +404,8 @@ Module M_Generar_Pdf
                     End If
                 End While
             End If
-
+            cn.Close()
+            Shell("cmd.exe /k" + " start DocumentoTemp.pdf && exit", vbHide)
         Catch ex As Exception
 
             CreateAlert(ex.Message, "", "error", "tiny", True, 10)

@@ -109,9 +109,15 @@
         LBL_Nombre.Visible = False
         LBL_Nombre_text.Visible = False
         LBL_Puesto.Visible = False
-        LBL_Puesto_text.Text = False
+        LBL_Puesto_text.Visible = False
         LBL_Usuario.Visible = False
         LBL_Usuario_text.Visible = False
         PB_Perfil.Visible = False
+    End Sub
+
+    Private Sub BTN_Recursos_Humanos_Click(sender As Object, e As EventArgs) Handles BTN_Recursos_Humanos.Click
+        Recursos_Humanos.Show()
+        Me.Hide()
+
     End Sub
 End Class

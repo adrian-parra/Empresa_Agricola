@@ -118,10 +118,16 @@
     <Compile Include="M_Inventario.vb" />
     <Compile Include="M_Venta.vb" />
     <Compile Include="Privilegios.vb" />
-    <Compile Include="Produccion.Designer.vb">
-      <DependentUpon>Produccion.vb</DependentUpon>
+    <Compile Include="Recursos_Humanos.Designer.vb">
+      <DependentUpon>Recursos_Humanos.vb</DependentUpon>
     </Compile>
-    <Compile Include="Produccion.vb">
+    <Compile Include="Recursos_Humanos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistrarEmpleado.Designer.vb">
+      <DependentUpon>RegistrarEmpleado.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarEmpleado.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Subsistema.Designer.vb">
@@ -188,8 +194,11 @@
     <EmbeddedResource Include="InventarioAddArticulo.resx">
       <DependentUpon>InventarioAddArticulo.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Produccion.resx">
-      <DependentUpon>Produccion.vb</DependentUpon>
+    <EmbeddedResource Include="Recursos_Humanos.resx">
+      <DependentUpon>Recursos_Humanos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegistrarEmpleado.resx">
+      <DependentUpon>RegistrarEmpleado.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Subsistema.resx">
       <DependentUpon>Subsistema.vb</DependentUpon>
@@ -284,6 +293,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\img_alert_success_tiny.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img-direccion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img-guardar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img-subsistemas-recursos-humanos.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

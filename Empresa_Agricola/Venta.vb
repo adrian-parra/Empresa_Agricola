@@ -175,7 +175,7 @@ Public Class Venta
                 GuardarPdfBd(folio, CInt(idecliente))
 
                 'TRAER PDF
-                TraerPdfBd()
+                'TraerPdfBd()
 
                 articulos.Rows.Clear()
             Catch ex As Exception
@@ -198,23 +198,25 @@ Public Class Venta
 
                 leerDatos.Read()
 
-                Dim query_ventas As New SqlCommand("insert into Cuentas_Por_Cobrar values ('" + leerDatos.GetValue(0).ToString + "','" + SumArticulos() + "','A')", cn)
+                Dim query_ventas As New SqlCommand("insert into Cuentas_Por_Cobrar values ('" + leerDatos.GetValue(0).ToString + "','" + SumArticulos() + "','A', '" + SumArticulos() + "' )", cn)
                 leerDatos.Close()
                 query_ventas.ExecuteNonQuery()
 
                 CreateAlert("VENTA a credito registrada", "", "succes", "small", True, 3)
+                cn.Close()
+
+                'CREAR FACTURA y abrir
+                M_Generar_Pdf.Reporte_Venta("select * from pedido_articulo where ID_Articulo = '" + idPedido + "'", folio, fecha, SumArticulos(), TraerNombreCliente(idecliente), tipoPago)
+                'GUARDAR FACTURA EN BD
+                GuardarPdfBd(folio, CInt(idecliente))
+
                 articulos.Rows.Clear()
                 BTN_Registrar_Venta.Enabled = False
                 limpiartext()
             Catch ex As Exception
+                cn.Close()
                 leerDatos.Close()
                 MsgBox(ex.Message)
-            Finally
-                cn.Close()
-
-                'LIBERAR MEMORIA
-                'cn.Dispose()
-                'articulos.Dispose()
 
             End Try
 

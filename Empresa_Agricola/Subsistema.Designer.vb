@@ -26,23 +26,23 @@ Partial Class Subsistema
         Me.BTN_Produccion = New System.Windows.Forms.Button()
         Me.BTN_Distribuccion = New System.Windows.Forms.Button()
         Me.BTN_Mantenimiento = New System.Windows.Forms.Button()
-        Me.BTN_Recursos_Humanos = New System.Windows.Forms.Button()
         Me.MS_Perfil = New System.Windows.Forms.MenuStrip()
         Me.PerfilToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CerrarSesionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.InformacionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SubsistemasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BTN_Finanzas = New System.Windows.Forms.Button()
-        Me.BTN_Ventas = New System.Windows.Forms.Button()
-        Me.BTN_Compras = New System.Windows.Forms.Button()
-        Me.BTN_Inventario = New System.Windows.Forms.Button()
-        Me.PB_Perfil = New System.Windows.Forms.PictureBox()
         Me.LBL_Nombre = New System.Windows.Forms.Label()
         Me.LBL_Usuario = New System.Windows.Forms.Label()
         Me.LBL_Puesto = New System.Windows.Forms.Label()
         Me.LBL_Nombre_text = New System.Windows.Forms.Label()
         Me.LBL_Usuario_text = New System.Windows.Forms.Label()
         Me.LBL_Puesto_text = New System.Windows.Forms.Label()
+        Me.PB_Perfil = New System.Windows.Forms.PictureBox()
+        Me.BTN_Recursos_Humanos = New System.Windows.Forms.Button()
+        Me.BTN_Finanzas = New System.Windows.Forms.Button()
+        Me.BTN_Ventas = New System.Windows.Forms.Button()
+        Me.BTN_Compras = New System.Windows.Forms.Button()
+        Me.BTN_Inventario = New System.Windows.Forms.Button()
+        Me.CerrarSesionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.InformacionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SubsistemasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MS_Perfil.SuspendLayout()
         CType(Me.PB_Perfil, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -92,24 +92,11 @@ Partial Class Subsistema
         Me.BTN_Mantenimiento.Text = "Mantenimiento"
         Me.BTN_Mantenimiento.UseVisualStyleBackColor = True
         '
-        'BTN_Recursos_Humanos
-        '
-        Me.BTN_Recursos_Humanos.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BTN_Recursos_Humanos.Enabled = False
-        Me.BTN_Recursos_Humanos.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.BTN_Recursos_Humanos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BTN_Recursos_Humanos.Location = New System.Drawing.Point(690, 338)
-        Me.BTN_Recursos_Humanos.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.BTN_Recursos_Humanos.Name = "BTN_Recursos_Humanos"
-        Me.BTN_Recursos_Humanos.Size = New System.Drawing.Size(169, 188)
-        Me.BTN_Recursos_Humanos.TabIndex = 7
-        Me.BTN_Recursos_Humanos.Text = "Recursos humanos"
-        Me.BTN_Recursos_Humanos.UseVisualStyleBackColor = True
-        '
         'MS_Perfil
         '
         Me.MS_Perfil.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.MS_Perfil.Font = New System.Drawing.Font("Segoe UI", 11.0!)
+        Me.MS_Perfil.GripMargin = New System.Windows.Forms.Padding(2, 2, 0, 2)
         Me.MS_Perfil.ImageScalingSize = New System.Drawing.Size(24, 24)
         Me.MS_Perfil.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PerfilToolStripMenuItem})
         Me.MS_Perfil.Location = New System.Drawing.Point(0, 0)
@@ -125,26 +112,92 @@ Partial Class Subsistema
         Me.PerfilToolStripMenuItem.Size = New System.Drawing.Size(77, 34)
         Me.PerfilToolStripMenuItem.Text = "Perfil"
         '
-        'CerrarSesionToolStripMenuItem
+        'LBL_Nombre
         '
-        Me.CerrarSesionToolStripMenuItem.Image = Global.Empresa_Agricola.My.Resources.Resources.img_subsistemas_cerrar_sesion
-        Me.CerrarSesionToolStripMenuItem.Name = "CerrarSesionToolStripMenuItem"
-        Me.CerrarSesionToolStripMenuItem.Size = New System.Drawing.Size(243, 38)
-        Me.CerrarSesionToolStripMenuItem.Text = "Cerrar sesion"
+        Me.LBL_Nombre.AutoSize = True
+        Me.LBL_Nombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LBL_Nombre.Location = New System.Drawing.Point(381, 308)
+        Me.LBL_Nombre.Name = "LBL_Nombre"
+        Me.LBL_Nombre.Size = New System.Drawing.Size(96, 26)
+        Me.LBL_Nombre.TabIndex = 10
+        Me.LBL_Nombre.Text = "Nombre:"
         '
-        'InformacionToolStripMenuItem
+        'LBL_Usuario
         '
-        Me.InformacionToolStripMenuItem.Image = Global.Empresa_Agricola.My.Resources.Resources.img_subsistemas_perfil_info
-        Me.InformacionToolStripMenuItem.Name = "InformacionToolStripMenuItem"
-        Me.InformacionToolStripMenuItem.Size = New System.Drawing.Size(243, 38)
-        Me.InformacionToolStripMenuItem.Text = "Informacion"
+        Me.LBL_Usuario.AutoSize = True
+        Me.LBL_Usuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LBL_Usuario.Location = New System.Drawing.Point(381, 370)
+        Me.LBL_Usuario.Name = "LBL_Usuario"
+        Me.LBL_Usuario.Size = New System.Drawing.Size(93, 26)
+        Me.LBL_Usuario.TabIndex = 11
+        Me.LBL_Usuario.Text = "Usuario:"
         '
-        'SubsistemasToolStripMenuItem
+        'LBL_Puesto
         '
-        Me.SubsistemasToolStripMenuItem.Image = Global.Empresa_Agricola.My.Resources.Resources.img_subsistemas_subsistemas
-        Me.SubsistemasToolStripMenuItem.Name = "SubsistemasToolStripMenuItem"
-        Me.SubsistemasToolStripMenuItem.Size = New System.Drawing.Size(243, 38)
-        Me.SubsistemasToolStripMenuItem.Text = "Subsistemas"
+        Me.LBL_Puesto.AutoSize = True
+        Me.LBL_Puesto.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LBL_Puesto.Location = New System.Drawing.Point(381, 452)
+        Me.LBL_Puesto.Name = "LBL_Puesto"
+        Me.LBL_Puesto.Size = New System.Drawing.Size(86, 26)
+        Me.LBL_Puesto.TabIndex = 12
+        Me.LBL_Puesto.Text = "Puesto:"
+        '
+        'LBL_Nombre_text
+        '
+        Me.LBL_Nombre_text.AutoSize = True
+        Me.LBL_Nombre_text.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LBL_Nombre_text.Location = New System.Drawing.Point(262, 347)
+        Me.LBL_Nombre_text.Name = "LBL_Nombre_text"
+        Me.LBL_Nombre_text.Size = New System.Drawing.Size(71, 25)
+        Me.LBL_Nombre_text.TabIndex = 13
+        Me.LBL_Nombre_text.Text = "Label1"
+        '
+        'LBL_Usuario_text
+        '
+        Me.LBL_Usuario_text.AutoSize = True
+        Me.LBL_Usuario_text.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LBL_Usuario_text.Location = New System.Drawing.Point(262, 407)
+        Me.LBL_Usuario_text.Name = "LBL_Usuario_text"
+        Me.LBL_Usuario_text.Size = New System.Drawing.Size(71, 25)
+        Me.LBL_Usuario_text.TabIndex = 14
+        Me.LBL_Usuario_text.Text = "Label1"
+        '
+        'LBL_Puesto_text
+        '
+        Me.LBL_Puesto_text.AutoSize = True
+        Me.LBL_Puesto_text.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LBL_Puesto_text.Location = New System.Drawing.Point(262, 500)
+        Me.LBL_Puesto_text.Name = "LBL_Puesto_text"
+        Me.LBL_Puesto_text.Size = New System.Drawing.Size(71, 25)
+        Me.LBL_Puesto_text.TabIndex = 15
+        Me.LBL_Puesto_text.Text = "Label1"
+        '
+        'PB_Perfil
+        '
+        Me.PB_Perfil.Image = Global.Empresa_Agricola.My.Resources.Resources.img_login
+        Me.PB_Perfil.Location = New System.Drawing.Point(266, 41)
+        Me.PB_Perfil.Name = "PB_Perfil"
+        Me.PB_Perfil.Size = New System.Drawing.Size(343, 249)
+        Me.PB_Perfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PB_Perfil.TabIndex = 9
+        Me.PB_Perfil.TabStop = False
+        '
+        'BTN_Recursos_Humanos
+        '
+        Me.BTN_Recursos_Humanos.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BTN_Recursos_Humanos.Enabled = False
+        Me.BTN_Recursos_Humanos.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.BTN_Recursos_Humanos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BTN_Recursos_Humanos.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BTN_Recursos_Humanos.Image = Global.Empresa_Agricola.My.Resources.Resources.img_subsistemas_recursos_humanos
+        Me.BTN_Recursos_Humanos.Location = New System.Drawing.Point(690, 338)
+        Me.BTN_Recursos_Humanos.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.BTN_Recursos_Humanos.Name = "BTN_Recursos_Humanos"
+        Me.BTN_Recursos_Humanos.Size = New System.Drawing.Size(169, 188)
+        Me.BTN_Recursos_Humanos.TabIndex = 7
+        Me.BTN_Recursos_Humanos.Text = "Recursos humanos"
+        Me.BTN_Recursos_Humanos.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.BTN_Recursos_Humanos.UseVisualStyleBackColor = True
         '
         'BTN_Finanzas
         '
@@ -218,72 +271,26 @@ Partial Class Subsistema
         Me.BTN_Inventario.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.BTN_Inventario.UseVisualStyleBackColor = True
         '
-        'PB_Perfil
+        'CerrarSesionToolStripMenuItem
         '
-        Me.PB_Perfil.Image = Global.Empresa_Agricola.My.Resources.Resources.img_login
-        Me.PB_Perfil.Location = New System.Drawing.Point(266, 41)
-        Me.PB_Perfil.Name = "PB_Perfil"
-        Me.PB_Perfil.Size = New System.Drawing.Size(343, 249)
-        Me.PB_Perfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PB_Perfil.TabIndex = 9
-        Me.PB_Perfil.TabStop = False
+        Me.CerrarSesionToolStripMenuItem.Image = Global.Empresa_Agricola.My.Resources.Resources.img_subsistemas_cerrar_sesion
+        Me.CerrarSesionToolStripMenuItem.Name = "CerrarSesionToolStripMenuItem"
+        Me.CerrarSesionToolStripMenuItem.Size = New System.Drawing.Size(270, 38)
+        Me.CerrarSesionToolStripMenuItem.Text = "Cerrar sesion"
         '
-        'LBL_Nombre
+        'InformacionToolStripMenuItem
         '
-        Me.LBL_Nombre.AutoSize = True
-        Me.LBL_Nombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LBL_Nombre.Location = New System.Drawing.Point(381, 308)
-        Me.LBL_Nombre.Name = "LBL_Nombre"
-        Me.LBL_Nombre.Size = New System.Drawing.Size(96, 26)
-        Me.LBL_Nombre.TabIndex = 10
-        Me.LBL_Nombre.Text = "Nombre:"
+        Me.InformacionToolStripMenuItem.Image = Global.Empresa_Agricola.My.Resources.Resources.img_subsistemas_perfil_info
+        Me.InformacionToolStripMenuItem.Name = "InformacionToolStripMenuItem"
+        Me.InformacionToolStripMenuItem.Size = New System.Drawing.Size(270, 38)
+        Me.InformacionToolStripMenuItem.Text = "Informacion"
         '
-        'LBL_Usuario
+        'SubsistemasToolStripMenuItem
         '
-        Me.LBL_Usuario.AutoSize = True
-        Me.LBL_Usuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LBL_Usuario.Location = New System.Drawing.Point(381, 370)
-        Me.LBL_Usuario.Name = "LBL_Usuario"
-        Me.LBL_Usuario.Size = New System.Drawing.Size(93, 26)
-        Me.LBL_Usuario.TabIndex = 11
-        Me.LBL_Usuario.Text = "Usuario:"
-        '
-        'LBL_Puesto
-        '
-        Me.LBL_Puesto.AutoSize = True
-        Me.LBL_Puesto.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LBL_Puesto.Location = New System.Drawing.Point(381, 452)
-        Me.LBL_Puesto.Name = "LBL_Puesto"
-        Me.LBL_Puesto.Size = New System.Drawing.Size(86, 26)
-        Me.LBL_Puesto.TabIndex = 12
-        Me.LBL_Puesto.Text = "Puesto:"
-        '
-        'LBL_Nombre_text
-        '
-        Me.LBL_Nombre_text.AutoSize = True
-        Me.LBL_Nombre_text.Location = New System.Drawing.Point(262, 347)
-        Me.LBL_Nombre_text.Name = "LBL_Nombre_text"
-        Me.LBL_Nombre_text.Size = New System.Drawing.Size(57, 20)
-        Me.LBL_Nombre_text.TabIndex = 13
-        Me.LBL_Nombre_text.Text = "Label1"
-        '
-        'LBL_Usuario_text
-        '
-        Me.LBL_Usuario_text.AutoSize = True
-        Me.LBL_Usuario_text.Location = New System.Drawing.Point(262, 407)
-        Me.LBL_Usuario_text.Name = "LBL_Usuario_text"
-        Me.LBL_Usuario_text.Size = New System.Drawing.Size(57, 20)
-        Me.LBL_Usuario_text.TabIndex = 14
-        Me.LBL_Usuario_text.Text = "Label1"
-        '
-        'LBL_Puesto_text
-        '
-        Me.LBL_Puesto_text.AutoSize = True
-        Me.LBL_Puesto_text.Location = New System.Drawing.Point(262, 500)
-        Me.LBL_Puesto_text.Name = "LBL_Puesto_text"
-        Me.LBL_Puesto_text.Size = New System.Drawing.Size(57, 20)
-        Me.LBL_Puesto_text.TabIndex = 15
-        Me.LBL_Puesto_text.Text = "Label1"
+        Me.SubsistemasToolStripMenuItem.Image = Global.Empresa_Agricola.My.Resources.Resources.img_subsistemas_subsistemas
+        Me.SubsistemasToolStripMenuItem.Name = "SubsistemasToolStripMenuItem"
+        Me.SubsistemasToolStripMenuItem.Size = New System.Drawing.Size(270, 38)
+        Me.SubsistemasToolStripMenuItem.Text = "Subsistemas"
         '
         'Subsistema
         '

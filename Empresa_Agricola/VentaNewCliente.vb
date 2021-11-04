@@ -37,6 +37,7 @@ Public Class VentaNewCliente
                     cn.Close()
 
                 Catch ex As Exception
+                    cn.Close()
                     MsgBox(ex.Message)
                 End Try
 
