@@ -15,4 +15,9 @@
     Private Sub Recursos_Humanos_Closed(sender As Object, e As EventArgs) Handles Me.Closed
         Subsistema.Show()
     End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        RecursosHumanosDatosEmpleado.Show()
+        Me.Hide()
+    End Sub
 End Class

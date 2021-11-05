@@ -142,6 +142,12 @@
     <Compile Include="ProduccionEmpaque.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="RecursosHumanosDatosEmpleado.Designer.vb">
+      <DependentUpon>RecursosHumanosDatosEmpleado.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanosDatosEmpleado.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Recursos_Humanos.Designer.vb">
       <DependentUpon>Recursos_Humanos.vb</DependentUpon>
     </Compile>
@@ -229,6 +235,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ProduccionEmpaque.resx">
       <DependentUpon>ProduccionEmpaque.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanosDatosEmpleado.resx">
+      <DependentUpon>RecursosHumanosDatosEmpleado.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Recursos_Humanos.resx">
       <DependentUpon>Recursos_Humanos.vb</DependentUpon>

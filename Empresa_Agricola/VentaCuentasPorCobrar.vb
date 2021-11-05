@@ -38,7 +38,7 @@ Public Class VentaCuentasPorCobrar
                 ' leerDatos.Read()
                 IDcliente = leerDatos.GetValue(1)
                 IDpedido = leerDatos.GetValue(0)
-                CreateAlert("adeudo encontrado", "", "succes", "tiny", False, 3)
+                CreateAlert("cuenta encontrada", "", "succes", "tiny", False, 3)
                 BTN_Abonar.Enabled = True
                 leerDatos.Close()
 
